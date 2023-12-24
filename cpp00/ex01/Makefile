@@ -26,6 +26,9 @@ ${NAME}: ${OBJS}
 	${CC} $(CFLAGS) $(OBJS) -o ${NAME}
 	printf "${WHITE}${PROG}: ${GREEN}Binary compiled!${RESET}\n"
 
+run: ${NAME}
+	./${NAME}
+
 clean:
 	if [ -e ${OBJS} ] ; then \
 			${RM} ${OBJS} ; \
@@ -43,4 +46,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-.SILENT: fclean clean re ${NAME}
+.SILENT: fclean clean re ${NAME} run
