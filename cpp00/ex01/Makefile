@@ -8,7 +8,7 @@ WHITE = \033[1;37m
 RESET = \033[0m
 
 NAME = agenda
-SRCS = main.cpp
+SRCS = main.cpp PhoneBook.cpp Contact.cpp
 PROG = CPP01
 
 CC = c++
@@ -30,7 +30,7 @@ run: ${NAME}
 	./${NAME}
 
 clean:
-	if [ -e ${OBJS} ] ; then \
+	if [ ${OBJS} ] ; then \
 			${RM} ${OBJS} ; \
 			printf "${WHITE}${PROG}: ${RED}All existing objects have been deleted${RESET}\n" ; \
 	fi
@@ -46,4 +46,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-.SILENT: fclean clean re ${NAME} run
+.SILENT: re ${NAME} run
