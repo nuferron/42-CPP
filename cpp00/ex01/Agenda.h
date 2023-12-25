@@ -6,8 +6,8 @@
 # include <csignal>
 # include <cstdlib>
 # include <iomanip>
-//# include "Contact.hpp"
-//# include "PhoneBook.hpp"
+# include "Contact.hpp"
+# include "PhoneBook.hpp"
 
 #define RED "\033[1;31m"
 #define GREEN "\033[1;32m"
