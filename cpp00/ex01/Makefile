@@ -30,10 +30,7 @@ run: ${NAME}
 	./${NAME}
 
 clean:
-	if [ ${OBJS} ] ; then \
-			${RM} ${OBJS} ; \
-			printf "${WHITE}${PROG}: ${RED}All existing objects have been deleted${RESET}\n" ; \
-	fi
+	${RM} ${OBJS}
 
 fclean: clean 
 		if [ -e ${NAME} ] ; then \
@@ -45,5 +42,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
-.SILENT: re ${NAME} run
+.PHONY: all clean fclean re clean
+.SILENT: re ${NAME} run clean
