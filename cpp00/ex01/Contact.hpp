@@ -9,9 +9,9 @@ class Contact
                 Contact();
                 ~Contact();
         void    new_contact();
-        void    full_print();
-        void    partial_print();
+        void    print_var();
     private:
+        void    print(std::string arg);
         std::string first_name;
         std::string last_name;
         std::string nickname;
