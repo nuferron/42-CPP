@@ -9,7 +9,8 @@ class Contact
                 Contact();
                 ~Contact();
         void    new_contact();
-        void    print_var();
+        void    print_preview();
+        void    print_contact();
     private:
         void    print(std::string arg);
         std::string first_name;

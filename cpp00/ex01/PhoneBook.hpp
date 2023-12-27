@@ -10,10 +10,11 @@ class   PhoneBook
                 ~PhoneBook();
         Contact agenda[8];
         void    add_contact();
-        void    print_contact();
         void    preview_agenda();
+        int     get_total();
     private:
         int total;
+        int written;
 };
 
 #endif
