@@ -1,4 +1,5 @@
 #include "Agenda.h"
+#include "PhoneBook.hpp"
 
 int main(void)
 {
@@ -10,6 +11,7 @@ int main(void)
     while (1)
     {
         std::cin >> input;
+        std::cout << CYAN << input << RESET << std::endl;
         if (!std::cin)
             return(0);
         else if (input == "ADD")
@@ -18,9 +20,14 @@ int main(void)
         }
         else if (input == "SEARCH")
         {
-            //std::cout << "You're trying to search a contact" << std::endl;
             phone_book.preview_agenda();
-        }
+            std::cout << "What contact would you like to see?" << std::endl;
+            std::cin >> input;
+            if (!std::cin)
+                return (1);
+            else
+                std::cout << PURPLE << input << RESET << std::endl;
+}
         else if (input == "EXIT")
         {
             std::cout << GREEN << "Thank you for using Agenda, see you soon!" << RESET << std::endl;

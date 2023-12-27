@@ -19,7 +19,26 @@ void    Contact::new_contact()
     std::cin >> this->secret;
 }
 
-void    Contact::full_print()
+void    Contact::print(std::string arg)
 {
-    std::cout << 
+    std::cout << arg.substr(0, 7);
+    if (arg.length() > 7)
+        std::cout << ". | ";
+    else
+    {
+        for (int i = 8 - arg.length(); i >= 0; i--)
+            std::cout << " ";
+        std::cout << "| ";
+
+    }
+}
+
+void    Contact::print_var()
+{
+    print(this->first_name);
+    print(this->last_name);
+    print(this->nickname);
+    std::cout << std::endl;
+    std::cout << "--------------------------------------------" << std::endl;
+
 }
