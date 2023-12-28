@@ -5,13 +5,15 @@ PhoneBook::PhoneBook(){}
 
 PhoneBook::~PhoneBook(){}
 
-void    PhoneBook::add_contact()
+int    PhoneBook::add_contact()
 {
     if (this->id == 8)
         this->id = 0;
-    this->agenda[this->id++].new_contact();
+    if (this->agenda[this->id++].new_contact())
+        return (1);
     if (this->total < 8)
         this->total++;
+    return (0);
 }
 
 void    PhoneBook::preview_agenda()
