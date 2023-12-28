@@ -1,7 +1,7 @@
 #include "Agenda.h"
 #include "PhoneBook.hpp"
 
-void    search(PhoneBook &phone_book)
+int    search(PhoneBook &phone_book)
 {
     int num;
 
@@ -9,14 +9,14 @@ void    search(PhoneBook &phone_book)
     std::cout << "What contact would you like to see?" << std::endl;
     std::cin >> num;
     if (!std::cin)
-        return ;
-    else if (num < 0 && num > phone_book.get_total())
-    {
+        return (1);
+    else if (num < 0 || num >= phone_book.get_total())
         std::cout << RED << "Invalid index" << RESET << std::endl;
-        return ;
-    }
     else
         phone_book.agenda[num].print_contact();
+    std::cin.clear();
+    std::cin.ignore(1, '\n');
+    return (0);
 }
 
 int main(void)
@@ -37,7 +37,8 @@ int main(void)
         }
         else if (input == "SEARCH")
         {
-            search(phone_book);
+            if (search(phone_book))
+                return (1);
         }
         else if (input == "EXIT")
         {
@@ -48,7 +49,7 @@ int main(void)
             std::cout << RED << "The only valid options are: \"ADD\", \"SEARCH\" and \"EXIT\" (this program is case-sensitive)" << RESET << std::endl;
         if (input == "ADD" || input == "SEARCH" || input == "EXIT")
         {
-            std::cout << "What else would you like to do?" << std::endl;
+            std::cout << std::endl << "What else would you like to do?" << std::endl;
             std::cout << "\tADD\tSEARCH\t   EXIT" << std::endl;
         }
     }
