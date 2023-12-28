@@ -2,6 +2,9 @@
 #include <iostream>
 #include <ctime>
 
+/*static variables are initialized only once and are shared
+by all objects of a class; thus, they must be initialized 
+outside the class, using the scope resolution operator (::)*/
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
