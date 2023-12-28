@@ -23,20 +23,20 @@ all: ${NAME}
 
 ${NAME}: ${OBJS}
 	${CC} $(CFLAGS) $(OBJS) -o ${NAME}
-	printf "${WHITE}CPP00: ${GREEN}Binary compiled!${RESET}\n"
+	printf "${WHITE}CPP00 EX00: ${GREEN}Binary compiled!${RESET}\n"
 
 clean:
 	if [ -e ${OBJS} ] ; then \
 			${RM} ${OBJS} ; \
-			printf "${WHITE}CPP00: ${RED}All existing objects have been deleted${RESET}\n" ; \
+			printf "${WHITE}CPP00 EX00: ${RED}All existing objects have been deleted${RESET}\n" ; \
 	fi
 
 fclean: clean 
 		if [ -e ${NAME} ] ; then \
 			${RM} ${NAME} ; \
-			printf "${WHITE}CPP00: ${RED}All existing binaries have been deleted${RESET}\n" ; \
+			printf "${WHITE}CPP00 EX00: ${RED}All existing binaries have been deleted${RESET}\n" ; \
 	else \
-		printf "${WHITE}CPP00: ${PURPLE}Already cleaned${RESET}\n" ; \
+		printf "${WHITE}CPP00 EX00: ${PURPLE}Already cleaned${RESET}\n" ; \
 	fi
 
 re: fclean all
