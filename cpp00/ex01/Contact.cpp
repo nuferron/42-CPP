@@ -5,18 +5,39 @@ Contact::Contact(){}
 
 Contact::~Contact(){}
 
-void    Contact::new_contact()
+int    Contact::new_contact()
 {
     std::cout << "Enter the contact's name, please" << std::endl;
-    getline(std::cin, this->first_name);
+    if (this->set_contact_vars(this->first_name))
+        return (1);
     std::cout << "Enter the contact's last name, please" << std::endl;
-    getline(std::cin, this->last_name);
+    if (this->set_contact_vars(this->last_name))
+        return (1);
     std::cout << "Enter the contact's nickname, please" << std::endl;
-    getline(std::cin, this->nickname);
-    std::cout << "Enter the contact's phone number, please" << std::endl;
-    getline(std::cin, this->phone);
+    if (this->set_contact_vars(this->nickname))
+        return (1);
+    std::cout << "Enter the contact's phone, please" << std::endl;
+    if (this->set_contact_vars(this->phone))
+        return (1);
     std::cout << "Enter the contact's darkest secret, please" << std::endl;
-    getline(std::cin, this->secret);
+    if (this->set_contact_vars(this->secret))
+        return (1);
+    return (0);
+}
+
+int    Contact::set_contact_vars(std::string &str)
+{
+    while (1)
+    {
+        getline(std::cin, str);
+        if (std::cin.eof())
+            return (1);
+        else if (str == "")
+            std::cout << RED << "Invalid input" << RESET << std::endl;
+        else
+            break ;
+    }
+    return (0);
 }
 
 void    Contact::print(std::string arg)
@@ -37,8 +58,7 @@ void    Contact::print_preview()
     print(this->first_name);
     print(this->last_name);
     print(this->nickname);
-    std::cout << std::endl;
-    std::cout << "--------------------------------------------" << std::endl;
+    std::cout << std::endl << "--------------------------------------------" << std::endl;
 
 }
 
