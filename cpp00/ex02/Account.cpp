@@ -52,6 +52,7 @@ bool	Account::makeWithdrawal( int withdrawal )
     _totalNbWithdrawals++;
     this->_amount -= withdrawal;
     this->_nbWithdrawals++;
+    return (true);
 }
 
 int		Account::checkAmount( void ) const
