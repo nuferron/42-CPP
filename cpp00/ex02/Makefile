@@ -7,9 +7,9 @@ CYAN = \033[1;36m
 WHITE = \033[1;37m
 RESET = \033[0m
 
-NAME = agenda
-SRCS = main.cpp PhoneBook.cpp Contact.cpp
-PROG = CPP01
+NAME = account
+SRCS = Account.cpp tests.cpp
+PROG = CPP02
 
 CC = c++
 RM = rm -f
