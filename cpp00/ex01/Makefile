@@ -9,7 +9,7 @@ RESET = \033[0m
 
 NAME = agenda
 SRCS = main.cpp PhoneBook.cpp Contact.cpp
-PROG = CPP01
+PROG = CPP00 EX01
 
 CC = c++
 RM = rm -f
@@ -25,9 +25,6 @@ all: ${NAME}
 ${NAME}: ${OBJS}
 	${CC} $(CFLAGS) $(OBJS) -o ${NAME}
 	printf "${WHITE}${PROG}: ${GREEN}Binary compiled!${RESET}\n"
-
-run: ${NAME}
-	./${NAME}
 
 clean:
 	${RM} ${OBJS}
