@@ -8,11 +8,12 @@ class Contact
     public:
                 Contact();
                 ~Contact();
-        void    new_contact();
+        int     new_contact();
         void    print_preview();
         void    print_contact();
     private:
         void    print(std::string arg);
+        int     set_contact_vars(std::string &str);
         std::string first_name;
         std::string last_name;
         std::string nickname;
