@@ -43,4 +43,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re clean
-.SILENT: re ${NAME} run clean
+.SILENT: ${NAME} run clean fclean
