@@ -15,8 +15,8 @@
 
 int		main( void ) {
 
-	typedef std::vector<Account::t>							  accounts_t;
-	typedef std::vector<int>								  ints_t;
+	typedef std::vector<Account::t>		accounts_t;
+	typedef std::vector<int>			ints_t;
 	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;
 
 	int	const				amounts[]	= { 42, 54, 957, 432, 1234, 0, 754, 16576 };
