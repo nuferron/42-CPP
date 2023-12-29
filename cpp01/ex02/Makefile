@@ -7,9 +7,9 @@ CYAN = \033[1;36m
 WHITE = \033[1;37m
 RESET = \033[0m
 
-NAME = horde
-SRCS = main.cpp zombieHorde.cpp Zombie.cpp
-PROG = CPP01 EX01
+NAME = brain
+SRCS = main.cpp
+PROG = CPP01 EX02
 
 CC = c++
 RM = rm -f
