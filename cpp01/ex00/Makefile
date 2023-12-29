@@ -8,8 +8,8 @@ WHITE = \033[1;37m
 RESET = \033[0m
 
 NAME = apocalypse
-SRCS = 
-PROG = CPP01
+SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+PROG = CPP01 EX00
 
 CC = c++
 RM = rm -f
