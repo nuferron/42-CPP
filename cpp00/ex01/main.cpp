@@ -66,11 +66,11 @@ int main(void)
         if (std::cin.eof())
             break ;
         if (input == "ADD" && phone_book.add_contact())
-            break ;
+				break ;
         else if (input == "SEARCH" && search(phone_book))
             break ;
         else if (input == "EXIT")
-            return (std::cout << GREEN << EXIT_MSG << std::endl, 0);
+            return (std::cout << GREEN << EXIT_MSG << RESET << std::endl, 0);
         if (input == "ADD" || input == "SEARCH" || input == "EXIT")
         {
             std::cout << std::endl << "What else would you like to do?" << std::endl;
