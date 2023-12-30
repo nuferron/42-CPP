@@ -1,7 +1,11 @@
 #include "PhoneBook.hpp"
 #include "Agenda.h"
 
-PhoneBook::PhoneBook(){}
+PhoneBook::PhoneBook()
+{
+	id = 0;
+	total = 0;
+}
 
 PhoneBook::~PhoneBook(){}
 
@@ -11,7 +15,7 @@ int    PhoneBook::add_contact()
         this->id = 0;
     if (this->agenda[this->id++].new_contact())
         return (1);
-    if (this->total < 8)
+	if (this->total < 8)
         this->total++;
     return (0);
 }
@@ -28,11 +32,6 @@ void    PhoneBook::preview_agenda()
         std::cout << "|    0" << i << "    | ";
         this->agenda[i].print_preview();
     }
-}
-
-int PhoneBook::get_id()
-{
-    return (this->id);
 }
 
 int PhoneBook::get_total()

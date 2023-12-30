@@ -11,11 +11,10 @@ class   PhoneBook
         Contact agenda[8];
         int     add_contact();
         void    preview_agenda();
-        int     get_id();
         int     get_total();
     private:
-        int id;
         int total;
+		int	id;
 };
 
 #endif
