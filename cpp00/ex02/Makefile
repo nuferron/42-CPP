@@ -33,7 +33,7 @@ diff: ${NAME}
 
 clean:
 	${RM} ${OBJS}
-	rm result
+	${RM} result
 
 fclean: clean 
 		if [ -e ${NAME} ] ; then \
