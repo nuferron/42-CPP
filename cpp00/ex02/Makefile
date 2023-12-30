@@ -26,6 +26,11 @@ ${NAME}: ${OBJS}
 	${CC} $(CFLAGS) $(OBJS) -o ${NAME}
 	printf "${WHITE}${PROG}: ${GREEN}Binary compiled!${RESET}\n"
 
+diff: ${NAME}
+	$(shell ./${NAME} > test)
+	$(shell bash -c "diff <(cut -c 18- test) <(cut -c 18- 19920104_091532.log) > result")
+	rm test
+
 clean:
 	${RM} ${OBJS}
 
@@ -40,4 +45,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re clean
-.SILENT: ${NAME} run clean fclean
+.SILENT: ${NAME} run clean fclean diff
