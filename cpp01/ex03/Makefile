@@ -7,8 +7,8 @@ CYAN = \033[1;36m
 WHITE = \033[1;37m
 RESET = \033[0m
 
-NAME = brain
-SRCS = main.cpp
+NAME = violence
+SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 PROG = CPP01 EX03
 
 CC = c++
