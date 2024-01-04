@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/04 19:54:01 by nuferron          #+#    #+#             */
+/*   Updated: 2024/01/04 20:06:39 by nuferron         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.h"
 
 static int get_name(std::string &name)
@@ -68,6 +80,8 @@ int main()
     if (get_name(name))
         return (1);
     n = get_number();
+	if (n >= 10000000)
+		std::cout << CYAN << n << " is a big number of zombies, the program might be slow" << RESET << std:: endl;
     if (n < 0)
         return (1);
     horde = zombieHorde(n, name);
