@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/04 19:47:48 by nuferron          #+#    #+#             */
+/*   Updated: 2024/01/04 19:51:20 by nuferron         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.h"
 
 static int get_name(std::string &name, std::string mem)
 {
-    std::cout << YELLOW << "Insert a name for the zombie saved in the" + mem + "memory" << RESET << std::endl;
+    std::cout << YELLOW << "Insert a name for the zombie saved in the " << mem << " memory" << RESET << std::endl;
     getline(std::cin, name);
     if (std::cin.eof())
         return (1);

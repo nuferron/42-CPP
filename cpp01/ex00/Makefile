@@ -29,6 +29,9 @@ ${NAME}: ${OBJS}
 run: ${NAME}
 	./${NAME}
 
+leaks: ${NAME}
+	leaks -atExit -- ./${NAME}
+
 clean:
 	${RM} ${OBJS}
 
