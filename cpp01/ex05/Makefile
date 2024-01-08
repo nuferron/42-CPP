@@ -13,7 +13,7 @@ PROG = CPP01 EX05
 
 CC = c++
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -std=c++98 #-Wno-unused-value
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-Wno-unused-value -g -fsanitize=address
 
 %.o: %.cpp Makefile
 		@${CC} ${CFLAGS} -c $< -o $@
