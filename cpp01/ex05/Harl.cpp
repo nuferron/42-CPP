@@ -2,10 +2,11 @@
 
 Harl::Harl()
 {
-    /*this->_code[0] = "DEBUG";
-    this->_code[1] = "INFO";
-    this->_code[2] = "WARNING";
-    this->_code[3] = "ERROR";*/
+    _code[0] = "DEBUG";
+    _code[1] = "INFO";
+    _code[2] = "WARNING";
+    _code[3] = "ERROR";
+    _call[0] = &Harl::_debug;
 }
 
 Harl::~Harl() {}
@@ -18,7 +19,7 @@ void    Harl::_debug()
 
 void    Harl::_info()
 {
-    std::cout "I’ve been involved in a number of cults, both a leader and a follower. You have more fun as a follower, but you make more money as a leader." << std::endl;
+    std::cout << "I’ve been involved in a number of cults, both a leader and a follower. You have more fun as a follower, but you make more money as a leader." << std::endl;
 }
 
 void    Harl::_warning()
@@ -31,5 +32,9 @@ void    Harl::_error()
     std::cout << "Everything is very bad. Good luck." << std::endl;
 }
 
-void    Harl::complain()
-{}
+void    Harl::complain(std::string code)
+{
+    std::cout << code << std::endl;
+    Harl::_error();
+    _call[0];
+}

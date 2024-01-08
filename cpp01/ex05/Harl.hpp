@@ -15,8 +15,9 @@ class   Harl
         void        _info();
         void        _warning();
         void        _error();
-        std::string _code[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+        std::string _code[4];
+        void    (Harl::*_call[4])();
         
-}
+};
 
 #endif
