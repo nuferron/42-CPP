@@ -27,7 +27,7 @@ ${NAME}: ${OBJS}
 	printf "${WHITE}${PROG}: ${GREEN}Binary compiled!${RESET}\n"
 
 run: ${NAME}
-	./${NAME} test.txt linia
+	./${NAME}
 
 clean:
 	${RM} ${OBJS}
