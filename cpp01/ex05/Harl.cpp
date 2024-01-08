@@ -1,8 +1,5 @@
 #include "Harl.hpp"
 #include "Harl.h"
-#include <iostream>
-#include <fstream>
-#include <string>
 
 Harl::Harl()
 {
