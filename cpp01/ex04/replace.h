@@ -10,7 +10,9 @@
 #define WHITE       "\033[1;37m"
 #define RESET       "\033[0m"
 
-#define ARGUMENTS   "Invalid arguments! The program takes 3 parameters int he following order: filename string1 string2"
-
+#define ARGUMENTS   "Invalid arguments! The program takes 3 parameters in the following order: filename string1 string2"
+#define READ        "There are problems to read"
+#define WRITE       "Woops, there are problems to create"
+#define FIND        "If nothing can be find, nothing will be replaced, and there's no way I can find nothing"
 
 #endif
