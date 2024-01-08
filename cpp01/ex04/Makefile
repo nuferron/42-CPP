@@ -29,6 +29,9 @@ ${NAME}: ${OBJS}
 run: ${NAME}
 	./${NAME} test.txt linia
 
+leaks: ${NAME}
+	leaks -atExit -- ./${NAME} test.txt linia AAAAAH
+
 clean:
 	${RM} ${OBJS}
 
@@ -39,8 +42,9 @@ fclean: clean
 	else \
 		printf "${WHITE}${PROG}: ${PURPLE}Already cleaned${RESET}\n" ; \
 	fi
+	${RM} *.replace
 
 re: fclean all
 
 .PHONY: all clean fclean re clean
-.SILENT: ${NAME} run clean fclean
+.SILENT: ${NAME} run clean fclean leaks

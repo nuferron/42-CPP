@@ -29,6 +29,9 @@ ${NAME}: ${OBJS}
 run: ${NAME}
 	./${NAME}
 
+leaks: ${NAME}
+	leaks -atExit -- ./${NAME}
+
 clean:
 	${RM} ${OBJS}
 
@@ -43,4 +46,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re clean
-.SILENT: ${NAME} run clean fclean
+.SILENT: ${NAME} run clean fclean leaks
