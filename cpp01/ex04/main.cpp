@@ -1,29 +1,39 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <stdio.h>
+#include "replace.h"
 
-int put_error_msg(char *error, char *str)
+void  put_error_msg(const char *error, const char *str)
 {
-  std::cout << error << str << std::endl;
-  return (1);
+  std::cout << error << " \"" << str << "\"" << std::endl;
 }
 
-int put_error_msg(char *error)
+void  put_error_msg(const char *error)
 {
   std::cout << error << std::endl;
-  return (1);
 }
 
-void  write_rep_text(std::string replace, std::string subs, std::string buff, std::ofstream &writeFile)
+size_t  ft_strlen(char *str)
+{
+  size_t  i = 0;
+
+  if (!str)
+    return (0);
+  while (str[i])
+    i++;
+  return (i);
+}
+
+void  write_rep_text(char *replace, char *subs, std::string buff, std::ofstream &writeFile)
 {
   size_t  found = 0;
   size_t  i = 0;
   size_t  len = buff.length();
+  size_t  subs_len = ft_strlen(subs);
 
-  if (subs == "")
+  if (!subs_len)
   {
-    std::cout << "There's nothing to find!" << std::endl;
+    put_error_msg(FIND);
     return ;
   }
   while (i < len)
@@ -33,8 +43,7 @@ void  write_rep_text(std::string replace, std::string subs, std::string buff, st
       return ;
     writeFile << buff.substr(i, found - i);
     writeFile << replace;
-    std::cout << "found: " << found << std::endl;
-    i = found + subs.length();
+    i = found + subs_len;
   }
 }
 
@@ -45,26 +54,19 @@ int	main(int argc, char **argv)
 	std::ifstream	readFile;
 	std::ofstream	writeFile;
 
-  (void)argv;
-  if (argc != 2)
-    return (printf("ARGUMENTS!\n"));
+  if (argc != 4)
+    return (put_error_msg(ARGUMENTS), 1);
   file = argv[1];
   readFile.open(file.c_str());
+  if (!readFile)
+    return (put_error_msg(READ, file.c_str()), 1);
   file.resize(file.rfind("."));
   file.append(".replace");
   writeFile.open (file.c_str(), std::ofstream::trunc);
-  std::cout << file << std::endl;
-  if (!readFile)
-  {
-    std::cout << "There are problems to read \"" << argv[1] << "\""<< std::endl;
-    return (1);
-  }
   if (!writeFile)
-  {
-    std::cout << "Sorry, there are problems to create \"" << file << "\""<< std::endl;
-    return (1);
-  }
-  content.assign( (std::istreambuf_iterator<char>(readFile) ), (std::istreambuf_iterator<char>()    ) );
+    return (put_error_msg(WRITE, file.c_str()), 1);
+  content.assign((std::istreambuf_iterator<char>(readFile)), (std::istreambuf_iterator<char>()));
   readFile.close();
-  write_rep_text("AAAAAH", "", content, writeFile);
+  write_rep_text(argv[3], argv[2], content, writeFile);
+  writeFile.close();
 }
