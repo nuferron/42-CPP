@@ -1,5 +1,5 @@
 primera linia
 aquesta es la segona linia
-aixo hauria de ser una nova linia, concretament la tercera.
+aixo hauria de ser una nova linia, concretament la tercera linia.
 quarta linia
 cinquena i ultima linia
