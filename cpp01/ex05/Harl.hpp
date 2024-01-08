@@ -10,6 +10,7 @@ class   Harl
                 Harl();
                 ~Harl();
         void    complain(std::string level);
+		void	complain(const void *ptr);
     private:
         void        _debug();
         void        _info();
@@ -17,7 +18,6 @@ class   Harl
         void        _error();
         std::string _code[4];
         void    (Harl::*_call[4])();
-        
 };
 
 #endif
