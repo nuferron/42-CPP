@@ -3,24 +3,38 @@
 #include <string>
 #include <stdio.h>
 
+int put_error_msg(char *error, char *str)
+{
+  std::cout << error << str << std::endl;
+  return (1);
+}
+
+int put_error_msg(char *error)
+{
+  std::cout << error << std::endl;
+  return (1);
+}
+
 void  write_rep_text(std::string replace, std::string subs, std::string buff, std::ofstream &writeFile)
 {
   size_t  found = 0;
   size_t  i = 0;
   size_t  len = buff.length();
-  size_t  subs_len = subs.length();
 
-  (void)replace;
+  if (subs == "")
+  {
+    std::cout << "There's nothing to find!" << std::endl;
+    return ;
+  }
   while (i < len)
   {
     found = buff.find(subs, i);
-    //std::cout << "\033[1;31m Busca linia a partir de i: " << i << "\t la troba a "<< found << std::endl;
-    //std::cout << "\033[1;32m Escriura " << buff.substr(i, found - i) << "\n\ti: " << i << " found: " << found << std::endl;
+    if (found > len)
+      return ;
     writeFile << buff.substr(i, found - i);
-    //writeFile << replace;
-    i += found + subs_len;
-    std::cout << "next: |" << buff[i] << "|" << std::endl;
-    //std::cout << &buff[i] << " len " << subs.length() << std::endl;
+    writeFile << replace;
+    std::cout << "found: " << found << std::endl;
+    i = found + subs.length();
   }
 }
 
@@ -50,8 +64,7 @@ int	main(int argc, char **argv)
     std::cout << "Sorry, there are problems to create \"" << file << "\""<< std::endl;
     return (1);
   }
-  //std::cout << readFile.rdbuf() << std::endl;
   content.assign( (std::istreambuf_iterator<char>(readFile) ), (std::istreambuf_iterator<char>()    ) );
   readFile.close();
-  write_rep_text("AAAAAH", "linia", content, writeFile);
+  write_rep_text("AAAAAH", "", content, writeFile);
 }
