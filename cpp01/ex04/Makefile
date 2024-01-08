@@ -7,13 +7,13 @@ CYAN = \033[1;36m
 WHITE = \033[1;37m
 RESET = \033[0m
 
-NAME = violence
+NAME = replace
 SRCS = main.cpp
 PROG = CPP01 EX04
 
 CC = c++
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-Wno-unused-value
 
 %.o: %.cpp Makefile
 		@${CC} ${CFLAGS} -c $< -o $@
@@ -27,7 +27,7 @@ ${NAME}: ${OBJS}
 	printf "${WHITE}${PROG}: ${GREEN}Binary compiled!${RESET}\n"
 
 run: ${NAME}
-	./${NAME}
+	./${NAME} test.txt linia
 
 clean:
 	${RM} ${OBJS}
