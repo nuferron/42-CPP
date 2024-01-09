@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/09 15:44:45 by nuferron          #+#    #+#              #
+#    Updated: 2024/01/09 15:45:00 by nuferron         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 RED = \033[1;31m
 GREEN = \033[1;32m
 YELLOW = \033[1;33m
@@ -13,7 +25,7 @@ PROG = CPP01 EX05
 
 CC = c++
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -std=c++98 #-Wno-unused-value -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 %.o: %.cpp Makefile
 		@${CC} ${CFLAGS} -c $< -o $@
