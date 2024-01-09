@@ -10,4 +10,5 @@ int main(void)
     msg.complain(NULL);
     msg.complain("WARNING");
     msg.complain("INFO");
+	msg.complain("DEBUG");
 }
