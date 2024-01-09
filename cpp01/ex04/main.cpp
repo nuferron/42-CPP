@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:45:28 by nuferron          #+#    #+#             */
-/*   Updated: 2024/01/09 15:45:30 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/01/09 19:36:05 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int	main(int argc, char **argv)
   readFile.open(file.c_str());
   if (!readFile)
     return (put_error_msg(READ, file.c_str()), 1);
-  file.resize(file.rfind("."));
   file.append(".replace");
   writeFile.open (file.c_str(), std::ofstream::trunc);
   if (!writeFile)
