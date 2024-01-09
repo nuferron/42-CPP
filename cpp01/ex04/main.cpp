@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:45:28 by nuferron          #+#    #+#             */
-/*   Updated: 2024/01/09 19:36:05 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/01/09 19:47:13 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,15 @@ void  write_rep_text(char *replace, char *subs, std::string buff, std::ofstream 
     put_error_msg(FIND);
     return ;
   }
+  std::cout << RED << buff << RESET << std::endl;
   while (i < len)
   {
     found = buff.find(subs, i);
     if (found > len)
-      return ;
+	{
+    	writeFile << buff.substr(i, found - i);
+		return ;
+	}
     writeFile << buff.substr(i, found - i);
     writeFile << replace;
     i = found + subs_len;
