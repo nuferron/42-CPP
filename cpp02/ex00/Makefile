@@ -6,7 +6,7 @@
 #    By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:50:10 by nuferron          #+#    #+#              #
-#    Updated: 2024/01/09 15:50:12 by nuferron         ###   ########.fr        #
+#    Updated: 2024/03/14 12:26:05 by nuferron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,14 @@ WHITE = \033[1;37m
 RESET = \033[0m
 
 NAME = canonical
-SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRCS = main.cpp Fixed.cpp
 PROG = CPP02 EX00
 
 CC = c++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-%.o: %.cpp Makefile
+%.o: %.cpp Makefile Fixed.hpp
 		@${CC} ${CFLAGS} -c $< -o $@
 
 OBJS = ${SRCS:.cpp=.o}
