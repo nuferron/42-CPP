@@ -14,9 +14,9 @@ int main(void)
 	/**** SOME MORE TESTS ****/
 	a.setRawBits(5);
 	c = a;
-	Fixed d(c);
-	std::cout << "A -> " << a.getRawBits() << std::endl;
-	std::cout << "C -> " << c.getRawBits() << std::endl;
-	std::cout << "D -> " << d.getRawBits() << std::endl;
+	Fixed d(3.14f);
+	std::cout << "A -> " << a << std::endl;
+	std::cout << "C -> " << c << std::endl;
+	std::cout << "D -> " << d << std::endl;
     return (0);
 }
