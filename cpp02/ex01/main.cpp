@@ -1,27 +1,5 @@
 #include "Fixed.hpp"
-/*
-int main(void)
-{
-    Fixed a(5);
-//    Fixed b( a );
-//    Fixed c;
-//    c = b;
-//    std::cout << a.getRawBits() << std::endl;
-//    std::cout << b.getRawBits() << std::endl;
-//    std::cout << c.getRawBits() << std::endl;
 
-
-//	a.setRawBits((int)5);
-//	c = a;
-//	Fixed d(3.14f);
-	std::cout << "A -> " << a << " as it is" << std::endl;
-	std::cout << "A -> " << a.toInt() << " as integer" << std::endl;
-//	std::cout << "C -> " << c << std::endl;
-//	std::cout << "D -> " << d << std::endl;
-    return (0);
-}
-*/
-#include <iostream>
 int main( void ) {
 	Fixed a;
 	Fixed const b( 10 );
