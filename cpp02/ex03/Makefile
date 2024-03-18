@@ -19,15 +19,15 @@ CYAN = \033[1;36m
 WHITE = \033[1;37m
 RESET = \033[0m
 
-NAME = canonical
-SRCS = main.cpp Fixed.cpp
-PROG = CPP02 EX02
+NAME = bsp
+SRCS = main.cpp bsp.cpp Fixed.cpp Point.cpp
+PROG = CPP02 EX03
 
 CC = g++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-%.o: %.cpp Makefile Fixed.hpp
+%.o: %.cpp Makefile Fixed.hpp Point.hpp
 		@${CC} ${CFLAGS} -c $< -o $@
 
 OBJS = ${SRCS:.cpp=.o}

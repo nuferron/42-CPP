@@ -14,7 +14,9 @@ class   Fixed
                 ~Fixed();
         Fixed   &operator=(const Fixed &f);
         bool	operator>(const Fixed &f) const;
+        bool	operator>(float fl) const;
 	bool	operator<(const Fixed &f) const;
+        bool	operator<(float fl) const;
 	bool	operator<=(const Fixed &f) const;
 	bool	operator>=(const Fixed &f) const;
 	bool	operator==(const Fixed &f) const;
@@ -41,7 +43,7 @@ class   Fixed
 	int	toInt(void) const;
     private:
         int             	_rawbits;
-        static const int	_bits = 8;
+        static const int	_bits = 16;
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &f);

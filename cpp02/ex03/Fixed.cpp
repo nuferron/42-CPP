@@ -33,6 +33,16 @@ bool	Fixed::operator>(Fixed const &f) const
 	return (this->_rawbits > f.getRawBits());
 }
 
+bool	Fixed::operator>(float fl) const
+{
+	return (this->toFloat() > fl);
+}
+
+bool	Fixed::operator<(float fl) const
+{
+	return (this->toFloat() < fl);
+}
+
 bool	Fixed::operator<(Fixed const &f) const
 {
 	return (this->_rawbits < f.getRawBits());

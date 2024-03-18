@@ -1,23 +1,22 @@
-#include "Fixed.hpp"
+#include "bsp.h"
 
-int main( void ) {
-	Fixed a(5);
-	Fixed b(10);
+int main()
+{
+	Point	a(2, 2);
+	Point	b(4, 6);
+	Point	c(7, 2);
+	Point	r(5.99f, 2.02f);
+	
+	float	area = a.getX() * (b.getY() - c.getY()) + b.getX() * (c.getY() - a.getY()) + c.getX() * (a.getY() - b.getY());
 
-std::cout << a << std::endl;
-std::cout << --a << std::endl;
-std::cout << a << std::endl;
-std::cout << a-- << std::endl;
-std::cout << a << std::endl;
-std::cout << Fixed::min(5, b) << std::endl;
-std::cout << Fixed::max(a, b) << std::endl;
-
-//	Fixed b(7);
-//	std::cout << "pre A: " << a << std::endl;
-//	std::cout << "++a " << ++a << std::endl;
-//	std::cout << "post " << a << std::endl;
-//	std::cout << "pre B: " << b << std::endl;
-//	std::cout << "b++ " << b++ << std::endl;
-//	std::cout << "post " << b << std::endl;
-	return 0;
+	if (area == 0)
+	{
+		std::cerr << "Invalid triangle" << std::endl;
+		return (1);
+	}
+	int i = bsp(a, b, c, r);
+	if (i == true)
+		std::cout << "Inside!!" << std::endl;
+	else
+		std::cout << "Out" << std::endl;
 }
