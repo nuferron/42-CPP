@@ -132,7 +132,6 @@ Fixed	Fixed::operator--(void)
 
 Fixed	Fixed::min(Fixed const &f1, Fixed const &f2)
 {
-	std::cout << "Const min" << std::endl;
 	if (f1 > f2)
 		return (f2);
 	return (f1);
@@ -147,7 +146,6 @@ Fixed	Fixed::min(Fixed &f1, Fixed &f2)
 
 Fixed	Fixed::max(Fixed const &f1, Fixed const &f2)
 {
-	std::cout << "Const max" << std::endl;
 	if (f1 < f2)
 		return (f2);
 	return (f1);
