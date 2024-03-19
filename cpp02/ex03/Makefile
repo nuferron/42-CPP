@@ -6,7 +6,7 @@
 #    By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:50:10 by nuferron          #+#    #+#              #
-#    Updated: 2024/03/14 14:50:15 by nuferron         ###   ########.fr        #
+#    Updated: 2024/03/19 14:27:41 by nuferron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,14 @@ RESET = \033[0m
 
 NAME = bsp
 SRCS = main.cpp bsp.cpp Fixed.cpp Point.cpp
+HEADERS = Fixed.hpp Point.hpp
 PROG = CPP02 EX03
 
 CC = g++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-%.o: %.cpp Makefile Fixed.hpp Point.hpp
+%.o: %.cpp ${HEADERS} Makefile
 		@${CC} ${CFLAGS} -c $< -o $@
 
 OBJS = ${SRCS:.cpp=.o}

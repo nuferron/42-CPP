@@ -43,7 +43,7 @@ class   Fixed
 	int	toInt(void) const;
     private:
         int             	_rawbits;
-        static const int	_bits = 16;
+        static const int	_bits = 8;
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &f);

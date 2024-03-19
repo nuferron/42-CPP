@@ -31,3 +31,9 @@ Point	Point::operator-(const Point &p) const
 	Point r(this->getX() - p.getX(), this->getY() - p.getY());
 	return (r);
 }
+
+std::ostream &operator<<(std::ostream &out, const Point &p)
+{
+	out << "(" << p.getX() << ", " << p.getY() << ")";
+	return (out);
+}
