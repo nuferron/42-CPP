@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:54:21 by nuferron          #+#    #+#             */
-/*   Updated: 2024/03/19 17:22:43 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:23:57 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap: Default constructor called" << std::endl;
 	this->_name = "ClapTrap";
 	this->_hit = 10;
 	this->_energy = 10;
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string name)
 {
-	std::cout << "Name constructor called" << std::endl;
+	std::cout << "ClapTrap: Name constructor called" << std::endl;
 	this->_name = name;
 	this->_hit = 10;
 	this->_energy = 10;
@@ -32,13 +32,13 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(ClapTrap &c)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap: Copy constructor called" << std::endl;
 	*this = c;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap: Destructor called" << std::endl;
 }
 
 ClapTrap	&ClapTrap::operator=(ClapTrap &c)
