@@ -10,7 +10,7 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 				/ ac.getX().toFloat() - (ac.getY() / ab.getY()));
 	Fixed ct2((point.getX() - a.getX() - ct1 * ac.getX()) / ab.getY().toFloat());
 
-	if (ct1 > 0 && ct2 > 0 && ct1 + ct2 < 1)
+	if (ct1 > 0 && ct2 > 0 && 1 - ct1.toFloat() - ct2.toFloat() > 0)
 		return (true);
 	return (false);
 }
