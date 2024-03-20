@@ -77,6 +77,11 @@ void	ClapTrap::setAttack(unsigned int a)
 
 void	ClapTrap::attack(const std::string &str)
 {
+	if (this->_hit == 0)
+	{
+		std::cout << "ClapTrap " << this->_name << " is dead, leave it rest in peace" << std::endl;
+		return ;
+	}
 	if (this->_energy == 0)
 	{
 		std::cout << "No energy left. " << this->_name << " must accept its fate." << std::endl;
