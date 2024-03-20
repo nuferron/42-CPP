@@ -1,33 +1,25 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(void)
 {
-	ClapTrap a;
-	ClapTrap b("pepe");
-
-	a.setAttack(4);
-	b.setAttack(4);
-	a.attack(b.getName());
-	b.takeDamage(a.getAttack());
-	b.takeDamage(a.getAttack());
-	b.beRepaired(1);
-	b.beRepaired(1);
-	b.beRepaired(1);
-	b.beRepaired(1);
-	b.beRepaired(1);
-	b.beRepaired(1);
-	b.beRepaired(1);
-	b.beRepaired(1);
-	b.beRepaired(1);
-	b.beRepaired(1);
-	b.attack(a.getName());
+	ScavTrap a("robot");
+	ScavTrap b;
+	b.attack("robot");
 	a.takeDamage(b.getAttack());
-	a.attack(b.getName());
+	a.attack("pepe");
 	b.takeDamage(a.getAttack());
+	a.beRepaired(5);
+	a.attack("pepe");
 	b.takeDamage(a.getAttack());
-	b.beRepaired(1);
-	b.beRepaired(1);
-	b.beRepaired(1);
-	b.beRepaired(1);
+	a.attack("pepe");
+	b.takeDamage(a.getAttack());
+	a.attack("pepe");
+	b.takeDamage(a.getAttack());
+	a.attack("pepe");
+	b.takeDamage(a.getAttack());
+	a.attack("pepe");
+	b.takeDamage(a.getAttack());
+	a.attack("pepe");
+	b.takeDamage(a.getAttack());
     return (0);
 }
