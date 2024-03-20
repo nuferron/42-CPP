@@ -94,14 +94,14 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		std::cout << this->_name << " is already dead... Nothing happened" << std::endl;
 		return ;
 	}
-	this->_hit -= amount;
 	std::cout << "Oh, no! " << this->_name << " has received " << amount << " points of damage! ";
-	if (this->_hit < 0)
+	if (this->_hit < this->_hit - amount)
 	{
 		this->_hit = 0;
 		std::cout << "It's dead, now. RIP " << this->_name << std::endl;
 		return ;
 	}
+	this->_hit -= amount;
 	std::cout << "His current life is: " << this->_hit << std::endl;
 }
 
