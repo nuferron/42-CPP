@@ -22,6 +22,11 @@ Cat &Cat::operator=(const Cat &c)
     return (*this);
 }
 
+std::string Cat::getType(void) const
+{
+    return(_type);
+}
+
 void    Cat::makeSound(void) const
 {
     std::cout << "Meow mrruh" << std::endl;

@@ -9,8 +9,9 @@ class   Cat: virtual public Animal
         Cat();
         Cat(const Cat &c);
         ~Cat();
-        Cat     &operator=(const Cat &c);
-        void    makeSound(void) const;
+        Cat         &operator=(const Cat &c);
+        std::string getType(void) const;
+        void        makeSound(void) const;
     private:
         const std::string _type;
 };

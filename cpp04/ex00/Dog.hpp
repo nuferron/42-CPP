@@ -9,8 +9,9 @@ class   Dog: virtual public Animal
         Dog();
         Dog(const Dog &d);
         ~Dog();
-        Dog     &operator=(const Dog &d);
-        void    makeSound(void) const;
+        Dog         &operator=(const Dog &d);
+        std::string getType(void) const;
+        void        makeSound(void) const;
     private:
         const std::string _type;
 };
