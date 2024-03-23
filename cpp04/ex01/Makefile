@@ -20,7 +20,7 @@ WHITE = \033[1;37m
 RESET = \033[0m
 
 NAME = fauna
-SHARED_FILES = Animal Dog Cat WrongAnimal WrongCat
+SHARED_FILES = Animal Dog Cat WrongAnimal WrongCat Brain
 SRCS = $(addsuffix .cpp,$(SHARED_FILES)) main.cpp
 HEADERS = $(addsuffix .hpp,$(SHARED_FILES))
 PROG = CPP04 EX00

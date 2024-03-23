@@ -3,7 +3,7 @@
 
 #include "Animal.hpp"
 
-class   Cat: virtual public Animal
+class   Cat: virtual public Animal, public Brain
 {
     public:
         Cat();
@@ -14,6 +14,7 @@ class   Cat: virtual public Animal
         void        makeSound(void) const;
     private:
         const std::string _type;
+        Brain   *_brain;
 };
 
 #endif

@@ -14,6 +14,7 @@ class   Dog: virtual public Animal
         void        makeSound(void) const;
     private:
         const std::string _type;
+        Brain   *brain;
 };
 
 #endif

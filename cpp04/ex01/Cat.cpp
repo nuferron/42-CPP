@@ -2,12 +2,13 @@
 
 Cat::Cat(): Animal::Animal("Cat"), _type("Cat")
 {
+    this->_brain = new Brain();
     std::cout << "Cat: Default constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat &c): Animal("Cat")
 {
-    (void)c;
+    this->_brain = c.getBrain();
     std::cout << "Cat: Copy constructor called" << std::endl;
 }
 
