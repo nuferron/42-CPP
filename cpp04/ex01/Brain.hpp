@@ -7,12 +7,15 @@ class   Brain
 {
     public:
         Brain();
-        Brain(const Brain &b);
+        Brain(Brain &b);
         ~Brain();
-        Brain &operator=(const Brain &b);
-        std::string getIdeas(void);
+        Brain       &operator=(Brain &b);
+        std::string getIdea(int id) const;
+        int         getId(void) const;
+        void        setIdea(const std::string &str);
     private:
         std::string _ideas[100];
+        int         _id;
 };
 
 #endif
