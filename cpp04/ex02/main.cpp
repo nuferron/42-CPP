@@ -3,31 +3,18 @@
 
 int main()
 {
-    Animal* dog;
-    Animal* cat;
-    Dog* dog1 = new Dog();
-    Cat* cat1 = new Cat();
-    
-    std::cout << dog1->getType() << " " << std::endl;
-    std::cout << cat1->getType() << " " << std::endl;
+    Cat cat;
 
-    std::cout << std::endl;
-    cat1->setIdea("sleep");
-    cat1->setIdea("eat");
-    cat1->setIdea("scratch");
-    cat1->printIdeas();
+    std::cout << "Creating cat2" << std::endl << std::endl;
 
-    std::cout << std::endl;
-    dog1->setIdea("play");
-    dog1->setIdea("pee");
-    dog1->setIdea("sleep");
-    dog1->printIdeas();
+    Cat cat2(cat);
+    //Dog dog;
 
-    cat = cat1;
-    dog = dog1;
-    cat->makeSound();
-    dog->makeSound();
+    //cat.makeSound();
+    //cat2.printIdeas();
+    //dog.makeSound();
 
-    delete dog;
-    delete cat;
+    cat.~Cat();
+
+    std::cout << "Deleting cat2" << std::endl << std::endl;
 }

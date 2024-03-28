@@ -14,7 +14,7 @@ Animal::Animal(const std::string str)
 
 Animal::Animal(const Animal &a)
 {
-    this->_type = a.getType();
+    this->_type = a._type;
     std::cout << "Animal: Copy constructor called" << std::endl;
 }
 
@@ -25,16 +25,6 @@ Animal::~Animal()
 
 Animal  &Animal::operator=(const Animal &a)
 {
-    this->_type = a.getType();
+    this->_type = a._type;
     return (*this);
-}
-
-std::string Animal::getType(void) const
-{
-    return (this->_type);
-}
-
-void    Animal::makeSound(void) const
-{
-    std::cout << "Random animal sound" << std::endl;
 }

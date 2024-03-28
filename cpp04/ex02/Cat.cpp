@@ -6,7 +6,7 @@ Cat::Cat(): Animal::Animal("Cat"), _type("Cat")
     std::cout << "Cat: Default constructor called" << std::endl;
 }
 
-Cat::Cat(Cat &c): Animal::Animal("Cat")
+Cat::Cat(Cat &c): Animal::Animal("Cat"), _type("Cat")
 {
     this->_brain = new Brain();
     this->_brain = c._brain;
@@ -15,15 +15,15 @@ Cat::Cat(Cat &c): Animal::Animal("Cat")
 
 Cat::~Cat()
 {
-    delete _brain;
+    delete this->_brain;
     std::cout << "Cat: Destructor called" << std::endl;
 }
 
 Cat &Cat::operator=(Cat &c)
 {
     if (this->_brain)
-        delete _brain;
-    this->_brain = c._brain;
+        delete this->_brain;
+    this->_brain = new Brain(*c._brain);
     return (*this);
 }
 
@@ -45,6 +45,11 @@ void    Cat::makeSound(void) const
 void    Cat::printIdeas(void) const
 {
     int id = this->_brain->getId();
+    if (!id)
+    {
+        std::cout << "This " << this->_type << " has no ideas yet!" << std::endl;
+        return ;
+    }
     for (int i = 0; i < id; i++)
         std::cout << this->_brain->getIdea(i) << std::endl;
 }
