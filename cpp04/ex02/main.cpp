@@ -11,7 +11,11 @@ int main()
     //Dog dog;
 
     //cat.makeSound();
-    //cat2.printIdeas();
+    cat.setIdea("hello");
+    cat.printIdeas();
+
+    std::cout << std::endl << std::endl;
+    cat2.printIdeas();
     //dog.makeSound();
 
     cat.~Cat();
