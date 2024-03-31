@@ -23,7 +23,7 @@ NAME = fauna
 SHARED_FILES = Animal Dog Cat Brain
 SRCS = $(addsuffix .cpp,$(SHARED_FILES)) main.cpp
 HEADERS = $(addsuffix .hpp,$(SHARED_FILES))
-PROG = CPP04 EX00
+PROG = CPP04 EX02
 
 CC = c++
 RM = rm -f

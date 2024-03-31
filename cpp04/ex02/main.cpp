@@ -8,17 +8,14 @@ int main()
     std::cout << "Creating cat2" << std::endl << std::endl;
 
     Cat cat2(cat);
-    //Dog dog;
+    Dog dog;
 
-    //cat.makeSound();
+    cat.makeSound();
     cat.setIdea("hello");
     cat.printIdeas();
 
     std::cout << std::endl << std::endl;
     cat2.printIdeas();
-    //dog.makeSound();
-
-    cat.~Cat();
-
-    std::cout << "Deleting cat2" << std::endl << std::endl;
+    dog.makeSound();
+    dog.printIdeas();
 }

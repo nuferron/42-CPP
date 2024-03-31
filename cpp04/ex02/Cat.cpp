@@ -1,6 +1,6 @@
 #include "Cat.hpp"
 
-Cat::Cat(): Animal::Animal("Cat"), _type("Cat"), _brain(NULL)
+Cat::Cat(): Animal::Animal("Cat"), _type("Cat")
 {
     this->_brain = new Brain();
     std::cout << "Cat: Default constructor called" << std::endl;
@@ -21,6 +21,7 @@ Cat::~Cat()
 
 Cat &Cat::operator=(Cat &c)
 {
+    delete this->_brain;
     this->_brain = new Brain(*c._brain);
     return (*this);
 }
