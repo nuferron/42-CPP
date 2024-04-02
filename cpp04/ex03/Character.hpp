@@ -7,10 +7,10 @@ class Character: virtual public ICharacter
 {
     public:
         Character();
-        Character(std::string &name);
+        Character(const std::string &name);
         Character(Character &c);
         ~Character();
-        Character &operator=(Character &c);
+        Character &operator=(const Character &c);
         std::string const & getName() const;
         void equip(AMateria* m);
         void unequip(int idx);

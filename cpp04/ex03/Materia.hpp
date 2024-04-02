@@ -12,7 +12,7 @@ class AMateria
         AMateria(); //default constructor
         AMateria(AMateria &m); //copy constructor
         AMateria(std::string const & type);
-        ~AMateria();
+        virtual ~AMateria();
         AMateria &operator=(AMateria &m); //Copy assignment operator
         std::string const & getType() const;
         virtual AMateria* clone() const = 0;

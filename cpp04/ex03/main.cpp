@@ -10,6 +10,7 @@ int main()
     Ice ice2;
     Ice ice3;
     Character player;
+    Character player2("Saturos");
 
     std::cout << ice.getType() << std::endl;
     std::cout << cure.getType() << std::endl;
@@ -24,4 +25,7 @@ int main()
     player.unequip(2);
     player.unequip(2);
     player.equip(&cure);
+    player.use(1, player2);
+
+
 }

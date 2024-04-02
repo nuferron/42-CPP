@@ -6,7 +6,7 @@ Character::Character(): _total(0), _name("Hans")
         this->_slots[i] = NULL;
 }
 
-Character::Character(std::string &name): _total(0), _name(name)
+Character::Character(const std::string &name): _total(0), _name(name)
 {
     for (int i = 0; i < 4; i++)
         this->_slots[i] = NULL;
@@ -15,10 +15,40 @@ Character::Character(std::string &name): _total(0), _name(name)
 Character::Character(Character &c): _total(c._total), _name(c._name)
 {
     for (int i = 0; i < 4; i++)
-        this->_slots[i] = c._slots[i];
+    {
+        if (this->_slots[i])
+            delete this->_slots[i];
+        if (c._slots[i])
+            this->_slots[i] = c._slots[i]->clone();
+        else
+            this->_slots[i] = NULL;
+    }
 }
 
-Character::~Character() {}
+Character::~Character()
+{
+    /*for (int i = 0; i < 4; i++)
+    {
+        if (this->_slots[i])
+            delete this->_slots[i];
+    }*/
+}
+
+Character &Character::operator=(const Character &c)
+{
+    this->_total = c._total;
+    this->_name = c._name;
+    for (int i = 0; i < 4; i++)
+    {
+        if (this->_slots[i])
+            delete this->_slots[i];
+        if (c._slots[i])
+            this->_slots[i] = c._slots[i]->clone();
+        else
+            this->_slots[i] = NULL;
+    }
+    return (*this);
+}
 
 std::string const   &Character::getName(void) const
 {
@@ -74,5 +104,5 @@ void    Character::use(int idx, ICharacter &target)
         return ;
     }
     std::cout << this->_name;
-    this->_slots[idx]::use(target);
+    this->_slots[idx]->use(target);
 }
