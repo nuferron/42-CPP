@@ -1,29 +1,29 @@
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal()
+AAnimal::AAnimal()
 {
     _type = "Beast";
     std::cout << "Animal: Default constructor called" << std::endl;
 }
 
-Animal::Animal(const std::string str)
+AAnimal::AAnimal(const std::string str)
 {
     _type = str;
     std::cout << "Animal: String constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &a)
+AAnimal::AAnimal(const AAnimal &a)
 {
     this->_type = a._type;
     std::cout << "Animal: Copy constructor called" << std::endl;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
     std::cout << "Animal: Destructor called" << std::endl;
 }
 
-Animal  &Animal::operator=(const Animal &a)
+AAnimal  &AAnimal::operator=(const AAnimal &a)
 {
     this->_type = a._type;
     return (*this);
