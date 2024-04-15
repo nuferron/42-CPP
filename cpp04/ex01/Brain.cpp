@@ -18,6 +18,7 @@ Brain::~Brain()
 
 Brain   &Brain::operator=(Brain &b)
 {
+	this->_id = b._id;
     for (int i = 0; i < b._id; i++)
         this->_ideas[i] = b._ideas[i];
     return (*this);
@@ -31,11 +32,6 @@ std::string Brain::getIdea(int id) const
 int Brain::getId(void) const
 {
     return (this->_id);
-}
-
-void Brain::setId(int index)
-{
-	this->_id = index;
 }
 
 void    Brain::setIdea(const std::string &str)
