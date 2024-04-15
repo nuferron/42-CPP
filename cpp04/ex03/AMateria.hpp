@@ -1,5 +1,5 @@
-#ifndef MATERIA_CPP
-# define MATERIA_CPP
+#ifndef AMATERIA_CPP
+# define AMATERIA_CPP
 
 #include <iostream>
 #include "ICharacter.hpp"

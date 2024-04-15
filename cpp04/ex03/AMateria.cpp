@@ -1,4 +1,4 @@
-#include "Materia.hpp"
+#include "AMateria.hpp"
 
 AMateria::AMateria(): _type("none") {}
 
