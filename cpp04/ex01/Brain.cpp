@@ -1,15 +1,13 @@
 #include "Brain.hpp"
 
-Brain::Brain()
+Brain::Brain(): _id(0)
 {
-    this->_id = 0;
     std::cout << "Brain: Default constructor called" << std::endl;
 }
 
-Brain::Brain(Brain &b)
+Brain::Brain(Brain &b): _id(b._id)
 {
     *this = b;
-    this->_id = b._id;
     std::cout << "Brain: Copy constructor called" << std::endl;
 }
 
@@ -20,8 +18,8 @@ Brain::~Brain()
 
 Brain   &Brain::operator=(Brain &b)
 {
-    for (int i = 0; i < this->_id; i++)
-        this->_ideas[i] = b.getIdea(i);
+    for (int i = 0; i < b._id; i++)
+        this->_ideas[i] = b._ideas[i];
     return (*this);
 }
 
@@ -33,6 +31,11 @@ std::string Brain::getIdea(int id) const
 int Brain::getId(void) const
 {
     return (this->_id);
+}
+
+void Brain::setId(int index)
+{
+	this->_id = index;
 }
 
 void    Brain::setIdea(const std::string &str)
