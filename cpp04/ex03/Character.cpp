@@ -27,11 +27,11 @@ Character::Character(Character &c): _total(c._total), _name(c._name)
 
 Character::~Character()
 {
-    /*for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
     {
         if (this->_slots[i])
             delete this->_slots[i];
-    }*/
+    }
 }
 
 Character &Character::operator=(const Character &c)
@@ -103,6 +103,5 @@ void    Character::use(int idx, ICharacter &target)
         std::cout << "Slot " << idx << " is empty!" << std::endl;
         return ;
     }
-    std::cout << this->_name;
     this->_slots[idx]->use(target);
 }

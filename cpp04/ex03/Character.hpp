@@ -1,7 +1,7 @@
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-#include "Materia.hpp"
+#include "AMateria.hpp"
 
 class Character: virtual public ICharacter
 {

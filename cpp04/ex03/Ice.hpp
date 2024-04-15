@@ -1,7 +1,7 @@
 #ifndef ICE_HPP
 # define ICE_HPP
 
-#include "Materia.hpp"
+#include "AMateria.hpp"
 
 class   Ice: virtual public AMateria
 {

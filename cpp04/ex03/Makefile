@@ -6,7 +6,7 @@
 #    By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:50:10 by nuferron          #+#    #+#              #
-#    Updated: 2024/04/15 19:04:37 by nuferron         ###   ########.fr        #
+#    Updated: 2024/04/15 20:51:39 by nuferron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ WHITE = \033[1;37m
 RESET = \033[0m
 
 NAME = interface
-SHARED_FILES = AMateria Ice Cure Character
+SHARED_FILES = AMateria Ice Cure Character MateriaSource
 SRCS = $(addsuffix .cpp,$(SHARED_FILES)) main.cpp
-HEADERS = $(addsuffix .hpp,$(SHARED_FILES)) ICharacter.hpp
+HEADERS = $(addsuffix .hpp,$(SHARED_FILES)) ICharacter.hpp IMateriaSource.hpp
 PROG = CPP04 EX03
 
 CC = c++
