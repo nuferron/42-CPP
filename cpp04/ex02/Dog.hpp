@@ -1,10 +1,10 @@
 #ifndef DOG_HPP
 #define DOG_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class   Dog: virtual public Animal
+class   Dog: virtual public AAnimal
 {
     public:
         Dog();

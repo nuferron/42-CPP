@@ -1,12 +1,12 @@
 #include "Cat.hpp"
 
-Cat::Cat(): Animal::Animal("Cat"), _type("Cat")
+Cat::Cat(): AAnimal::AAnimal("Cat"), _type("Cat")
 {
     this->_brain = new Brain();
     std::cout << "Cat: Default constructor called" << std::endl;
 }
 
-Cat::Cat(Cat &c): Animal::Animal("Cat"), _type("Cat"), _brain(NULL)
+Cat::Cat(Cat &c): AAnimal::AAnimal("Cat"), _type("Cat"), _brain(NULL)
 {
     this->_brain = new Brain(*c._brain);
     std::cout << "Cat: Copy constructor called" << std::endl;
@@ -21,14 +21,13 @@ Cat::~Cat()
 
 Cat &Cat::operator=(Cat &c)
 {
-    delete this->_brain;
-    this->_brain = new Brain(*c._brain);
+	*this->_brain = *c._brain;
     return (*this);
 }
 
 std::string Cat::getType(void) const
 {
-    return(this->_type);
+    return (this->_type);
 }
 
 void    Cat::setIdea(const std::string &str) const

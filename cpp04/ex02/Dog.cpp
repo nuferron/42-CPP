@@ -1,12 +1,12 @@
 #include "Dog.hpp"
 
-Dog::Dog(): Animal::Animal("Dog"), _type("Dog")
+Dog::Dog(): AAnimal::AAnimal("Dog"), _type("Dog")
 {
     this->_brain = new Brain;
     std::cout << "Dog: Default constructor called" << std::endl;
 }
 
-Dog::Dog(Dog &d): Animal::Animal("Dog")
+Dog::Dog(Dog &d): AAnimal::AAnimal("Dog")
 {
     this->_brain = new Brain(*d._brain);
     std::cout << "Dog: Copy constructor called" << std::endl;
@@ -14,20 +14,20 @@ Dog::Dog(Dog &d): Animal::Animal("Dog")
 
 Dog::~Dog()
 {
-    delete _brain;
+	if (this->_brain)
+    	delete this->_brain;
     std::cout << "Dog: Destructor called" << std::endl;
 }
 
 Dog &Dog::operator=(Dog &d)
 {
-    delete this->_brain;
-    this->_brain = new Brain(*d._brain);
+    *this->_brain = *d._brain;
     return (*this);
 }
 
 std::string Dog::getType(void) const
 {
-    return(this->_type);
+    return (this->_type);
 }
 
 void    Dog::setIdea(const std::string &str)
