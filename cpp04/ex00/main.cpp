@@ -2,18 +2,6 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 
-/*int main()
-{
-    Animal a;
-    Dog dog;
-    Cat cat;
-    std::cout << "a " + a.getType() << std::endl;
-    std::cout << "cat " + cat.getType() << std::endl;
-    std::cout << "dog " + dog.getType() << std::endl;
-    cat.makeSound();
-    dog.makeSound();
-}*/
-
 int main()
 {
     const Animal* animal = new Animal();
@@ -33,7 +21,7 @@ int main()
 
     const WrongAnimal* wronganimal = new WrongAnimal();
     const WrongAnimal* wrongcat = new WrongCat();
-    std::cout << wrongcat->getType() << " " << std::endl;
+    std::cout << wrongcat->getType() << std::endl;
     wrongcat->makeSound();
     wronganimal->makeSound();
 

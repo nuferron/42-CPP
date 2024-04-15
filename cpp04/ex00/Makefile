@@ -6,7 +6,7 @@
 #    By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:50:10 by nuferron          #+#    #+#              #
-#    Updated: 2024/03/19 17:16:34 by nuferron         ###   ########.fr        #
+#    Updated: 2024/04/15 16:51:39 by nuferron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ PROG = CPP04 EX00
 
 CC = c++
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -g -Werror -std=c++98 #-fsanitize=address
 
 OBJS = ${SRCS:.cpp=.o}
 
