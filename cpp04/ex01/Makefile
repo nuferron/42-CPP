@@ -6,7 +6,7 @@
 #    By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:50:10 by nuferron          #+#    #+#              #
-#    Updated: 2024/03/19 17:16:34 by nuferron         ###   ########.fr        #
+#    Updated: 2024/04/15 18:27:05 by nuferron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,11 @@ NAME = fauna
 SHARED_FILES = Animal Dog Cat Brain
 SRCS = $(addsuffix .cpp,$(SHARED_FILES)) main.cpp
 HEADERS = $(addsuffix .hpp,$(SHARED_FILES))
-PROG = CPP04 EX00
+PROG = CPP04 EX01
 
 CC = c++
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -g -std=c++98 #-fsanitize=address
 
 OBJS = ${SRCS:.cpp=.o}
 
