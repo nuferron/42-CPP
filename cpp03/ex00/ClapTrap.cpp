@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:54:21 by nuferron          #+#    #+#             */
-/*   Updated: 2024/03/19 17:22:43 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/04/10 21:09:33 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,17 +77,17 @@ void	ClapTrap::setAttack(unsigned int a)
 
 void	ClapTrap::attack(const std::string &str)
 {
-	if (this->_hit == 0)
-	{
-		std::cout << "ClapTrap " << this->_name << " is dead, leave it rest in peace" << std::endl;
-		return ;
-	}
 	if (this->_energy == 0)
 	{
-		std::cout << "No energy left. " << this->_name << " must accept its fate." << std::endl;
+		std::cout << this->_name << " is too tired to attack" << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->_name << " attacks " << str;
+	if (this->_hit == 0)
+	{
+		std::cout << this->_name << " is dead, leave it rest in peace" << std::endl;
+		return ;
+	}
+	std::cout << this->_name << " attacks " << str;
 	std::cout << ", causing " << this->_attack << " points of damage!" << std::endl;
 	this->_energy--;
 }
