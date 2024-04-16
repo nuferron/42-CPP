@@ -6,7 +6,7 @@
 #    By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:50:10 by nuferron          #+#    #+#              #
-#    Updated: 2024/04/16 20:22:31 by nuferron         ###   ########.fr        #
+#    Updated: 2024/04/16 22:30:33 by nuferron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ RESET = \033[0m
 
 ################# SPECIFIC VARIABLES #####################
 NAME = bureaucracy
-SHARED_FILES = Bureaucrat AForm ShrubberyCreationForm
+SHARED_FILES =	Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm \
+				PresidentialPardonForm
 SRCS = $(addsuffix .cpp,$(SHARED_FILES)) main.cpp
 HEADERS = $(addsuffix .hpp,$(SHARED_FILES))
 PROG = CPP05 EX02
