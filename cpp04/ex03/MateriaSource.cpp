@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 19:30:40 by nuferron          #+#    #+#             */
-/*   Updated: 2024/04/15 20:53:27 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/04/16 11:52:23 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	MateriaSource::learnMateria(AMateria *mat)
 		std::cout << "Try using another Materia Source" << std::endl;
 		return ;
 	}
-	this->_slot[i] = mat->clone();
+	this->_slot[i] = mat;
 }
 
 AMateria	*MateriaSource::createMateria(const std::string &type)
@@ -64,8 +64,9 @@ AMateria	*MateriaSource::createMateria(const std::string &type)
 
 	while (i < 4 && this->_slot[i])
 	{
-		if (this->_slot[i++]->getType() == type)
+		if (this->_slot[i]->getType() == type)
 			break ;
+		i++;
 	}
 	if (i == 4 || !this->_slot[i])
 	{
