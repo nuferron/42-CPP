@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 20:10:20 by nuferron          #+#    #+#             */
-/*   Updated: 2024/04/16 20:11:18 by nuferron         ###   ########.fr       */
+/*   Created: 2024/04/16 19:57:58 by nuferron          #+#    #+#             */
+/*   Updated: 2024/04/16 22:32:19 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ class	PresidentialPardonForm: public AForm
 		PresidentialPardonForm(const std::string &target);
 		PresidentialPardonForm(const PresidentialPardonForm &s);
 		~PresidentialPardonForm();
-		PresidentialPardonForm	&operator=(const PresidentialPardonForm);
-}
+		PresidentialPardonForm	&operator=(const PresidentialPardonForm &s);
+		std::string	getTarget(void) const;
+		void		execute(const Bureaucrat &executor) const;
+	private:
+		std::string	_target;
+};
 
 #endif

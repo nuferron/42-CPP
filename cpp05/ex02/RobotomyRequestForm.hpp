@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 20:08:06 by nuferron          #+#    #+#             */
-/*   Updated: 2024/04/16 20:09:46 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/04/16 22:09:00 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ class	RobotomyRequestForm: public AForm
 		RobotomyRequestForm(const std::string &target);
 		RobotomyRequestForm(const RobotomyRequestForm &s);
 		~RobotomyRequestForm();
-		RobotomyRequestForm	&operator=(const RobotomyRequestForm);
-}
+		RobotomyRequestForm	&operator=(const RobotomyRequestForm &f);
+		void		execute(const Bureaucrat &executor) const;
+		std::string	getTarget(void) const;
+	private:
+		std::string	_target;
+};
 
 #endif
