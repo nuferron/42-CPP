@@ -1,4 +1,6 @@
 *.o
+*.d
+.*.swp
 .vscode
 agenda
 account
@@ -12,6 +14,5 @@ complain
 canonical
 Borderlands
 fauna
-.*.swp
 interface
 bureaucracy
