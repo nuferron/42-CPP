@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 14:53:07 by nuferron          #+#    #+#             */
-/*   Updated: 2024/04/16 21:38:57 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/04/16 22:23:15 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	Bureaucrat::executeForm(const AForm &f) const
 	try
 	{
 		f.execute(*this);
-		std::cout << this->_name + " executed " + f.getName() << std::endl;
+		std::cout << this->_name + " executed " + f.getTarget() << std::endl;
 	}
 	catch (std::exception &ex)
 	{
