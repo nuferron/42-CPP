@@ -21,12 +21,11 @@ WHITE = \033[1;37m
 RESET = \033[0m
 
 ################# SPECIFIC VARIABLES #####################
-NAME = bureaucracy
-SHARED_FILES =	Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm \
-				PresidentialPardonForm Intern
+NAME = convert
+SHARED_FILES =	ScalarConverter
 SRCS = $(addsuffix .cpp,$(SHARED_FILES)) main.cpp
 HEADERS = $(addsuffix .hpp,$(SHARED_FILES))
-PROG = CPP05 EX03
+PROG = CPP06 EX00
 
 ################## COMMANDS #################
 CC = c++
@@ -56,7 +55,7 @@ ${OBJDIR}%.o: %.cpp Makefile
 		@${CC} ${CFLAGS} ${DEPFLAGS} -c $< -o $@
 
 run: ${NAME}
-	./${NAME}
+	./${NAME} 0
 
 
 leaks: ${NAME}
