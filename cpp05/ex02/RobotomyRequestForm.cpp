@@ -6,15 +6,15 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 20:31:53 by nuferron          #+#    #+#             */
-/*   Updated: 2024/04/16 22:17:33 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/04/22 11:52:49 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(): AForm(72, 45), _target("robot") {}
+RobotomyRequestForm::RobotomyRequestForm(): AForm("robot", 72, 45), _target("robot") {}
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target): AForm(72, 45), _target(target) {}
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target): AForm(target, 72, 45), _target(target) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &s): AForm(s.getName(), s.getReqSign(), s.getReqExe()) {}
 RobotomyRequestForm::~RobotomyRequestForm() {}

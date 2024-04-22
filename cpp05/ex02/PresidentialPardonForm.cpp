@@ -6,15 +6,15 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 20:13:11 by nuferron          #+#    #+#             */
-/*   Updated: 2024/04/16 22:33:42 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/04/22 11:53:12 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(): AForm(25, 5), _target("zaphod") {}
+PresidentialPardonForm::PresidentialPardonForm(): AForm("zaphod", 25, 5), _target("zaphod") {}
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target): AForm(25, 5), _target(target) {}
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target): AForm(target, 25, 5), _target(target) {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &s): AForm(s.getName(), s.getReqSign(), s.getReqExe()) {}
 PresidentialPardonForm::~PresidentialPardonForm() {}
