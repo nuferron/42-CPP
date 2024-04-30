@@ -22,9 +22,8 @@ RESET = \033[0m
 
 ################# SPECIFIC VARIABLES #####################
 NAME = real_type
-SHARED_FILES =	Base A B C
-SRCS = $(addsuffix .cpp,$(SHARED_FILES)) main.cpp
-HEADERS = $(addsuffix .hpp,$(SHARED_FILES))
+SRCS = main.cpp
+HEADERS = Base A B C
 PROG = CPP06 EX02
 
 ################## COMMANDS #################
