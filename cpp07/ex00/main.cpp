@@ -3,7 +3,7 @@
 void    itest(int a, int b)
 {
     std::cout << "PRE a: " << a << " b: " << b << std::endl;
-    swap<int>(&a, &b);
+    swap<int>(a, b);
     std::cout << "POST a: " << a << " b: " << b << std::endl;
     std::cout << "MIN " << min<int>(a, b) << std::endl;
     std::cout << "MAX " << max<int>(a, b) << std::endl;
@@ -12,7 +12,7 @@ void    itest(int a, int b)
 void    ftest(float a, float b)
 {
     std::cout << "PRE a: " << a << " b: " << b << std::endl;
-    swap<float>(&a, &b);
+    swap<float>(a, b);
     std::cout << "POST a: " << a << " b: " << b << std::endl;
     std::cout << "MIN " << min<float>(a, b) << std::endl;
     std::cout << "MAX " << max<float>(a, b) << std::endl;
@@ -21,7 +21,7 @@ void    ftest(float a, float b)
 void    ctest(char a, char b)
 {
     std::cout << "PRE a: " << a << " b: " << b << std::endl;
-    swap<char>(&a, &b);
+    swap<char>(a, b);
     std::cout << "POST a: " << a << " b: " << b << std::endl;
     std::cout << "MIN " << min<char>(a, b) << std::endl;
     std::cout << "MAX " << max<char>(a, b) << std::endl;
@@ -35,3 +35,19 @@ int main()
     std::cout << std::endl;
     ctest('a', 'A');
 }
+
+/*int main( void ) {
+    int a = 2;
+    int b = 3;
+    ::swap( a, b );
+    std::cout << "a = " << a << ", b = " << b << std::endl;
+    std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+    std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+    std::string c = "chaine1";
+    std::string d = "chaine2";
+    ::swap(c, d);
+    std::cout << "c = " << c << ", d = " << d << std::endl;
+    std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+    std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+    return (0);
+}*/
