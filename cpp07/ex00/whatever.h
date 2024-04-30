@@ -3,12 +3,12 @@
 
 #include <iostream>
 
-template <typename T> void swap(T *a, T *b)
+template <typename T> void swap(T &a, T &b)
 {
-    T c = *a;
+    T c = a;
 
-    *a = *b;
-    *b = c;
+    a = b;
+    b = c;
 }
 
 template <typename T> T min(T f, T s)
