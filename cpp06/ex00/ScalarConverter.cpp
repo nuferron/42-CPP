@@ -12,94 +12,87 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &s)
     return (*this);
 }
 
-int ScalarConverter::whichNumericType(const std::string &str)
+void    ScalarConverter::special(double n)
 {
-    bool    dot = false;
-    int     len = str.length();
-    int     i = -1;
-
-    if (len == 1 && isalpha(str[0]))
-        return (0); //Char
-    while (++i < len)
+    std::cout << "char: impossible" << std::endl
+                << "int: impossible" << std::endl;
+    if (!n)
     {
-        if (!dot && str[i] == '.')
-            dot = true;
-        else if (str[i] < '0' && str[i] > '9')
-            break ;
+        std::cout << "float: nanf" << std::endl
+                    << "double: nan" << std::endl;
     }
-    if (i == len && !dot)
-        return (1); //Int
-    if (i == len && dot)
-        return (3); //Double
-    if (i == len - 1 && str[i] == 'f')
-        return (2); //Float
-    return (-1); //None of the above
+    else
+    {
+        std::cout << "float: " << n << "f" << std::endl
+                    << "double: " << n << std::endl;
+    }
 }
 
-std::string ScalarConverter::putChar(const std::string &str)
+int    ScalarConverter::isDigit(const char c)
 {
-    int len = str.length();
-    int ascii;
-
-    if (len == 1 && isalpha(str[0]))
-        return ("\'" + str + "\'");
-    try
-    {
-        ascii = std::stoi(str);
-    }
-    catch (std::exception &ex)
-    {
-        return (std::string("impossible"));
-    }
-    if (ascii < ' ' || ascii == 127)
-        return (std::string("Non displayable"));
-    return (std::string(1, static_cast<char>(ascii)));
+    if (c >= '0' && c <= '9')
+        return (1);
+    return (0);
 }
 
-void    ScalarConverter::convert(const std::string &s)
+void    ScalarConverter::printChar(const std::string &str)
 {
-    double type = whichNumericType(s);
-    const char    *str = &s[0];
+    char    c;
+    int     n;
 
-    std::cout << "Char: " << putChar(s) << std::endl;
-    switch (static_cast<int>(type))
+    if (str[0] == '\'')
+        c = str[1];
+    else
+        c = str[0];
+    n = static_cast<int>(c);
+    std::cout << "char: '" << c << "'" << std::endl
+                << "int: " << n << std::endl
+                << "float: " << n << ".0f" << std::endl
+                << "double: " << n << ".0" << std::endl;
+}
+
+void    ScalarConverter::printNumber(double n)
+{
+    if (n < INT_MIN || n > INT_MAX)
+        std::cout << "int: impossible" << std::endl;
+    else
+        std::cout << "int: " << static_cast<int>(n) << std::endl;
+    /////// FLOAT ////////
+    if (n < -FLT_MAX || n > FLT_MAX)
+        std::cout << "float: impossible" << std::endl;
+    else
     {
-        case 0:
-        {
-            std::cout << "Int: " << static_cast<int>(s[0]) << std::endl;
-            std::cout << "Float: " << static_cast<float>(s[0]) << std::endl;
-            std::cout << "Double: " << static_cast<double>(s[0]) << std::endl;
-            break ;
-        }
-        case 1:
-        {
-            type = std::atoi(str);
-            std::cout << "Int: " << type << std::endl;
-            std::cout << "Float: " << static_cast<float>(type)<< std::endl;
-            std::cout << "Double: " << static_cast<double>(type) << std::endl;
-            break ;
-        }
-        case 2:
-        {
-            type = std::atof(str);
-            std::cout << "Int: " << static_cast<int>(type) << std::endl;
-            std::cout << "Float: " << type;
-            if (type == (int)type)
-                std::cout << "0";
-            std::cout << "f" << std::endl;
-            std::cout << "Double: " << static_cast<double>(type) << std::endl;
-            break ;
-        }
-        case 3:
-        {
-            type = std::atof(str);
-            std::cout << "Int: " << static_cast<int>(type) << std::endl;
-            std::cout << "Float: " << static_cast<float>(type) << "f" << std::endl;
-            std::cout << "Double: " << type << std::endl;
-            break ;
-        }
-        default:
-            std::cout << "Not sure what this is: " << s << std::endl;
-            break ;
+        std::cout << "float: " << static_cast<float>(n);
+        if (n == (int)n)
+            std::cout << ".0";
+        std::cout << "f" << std::endl;
     }
+    /////// DOUBLE /////////
+    std::cout << "double: " << n;
+    if (n == (int)n)
+        std::cout << ".0";
+    std::cout << std::endl;
+}
+
+void    ScalarConverter::convert(const std::string &str)
+{
+    if ((str[0] == '\'' && str[1] && str[2] == '\'' && !str[3]) || (!isDigit(str[0]) && !str[1]))
+    {
+        printChar(str);
+        return ;
+    }
+    double n = atof(str.c_str());
+    if (n != n || n - n != n - n // n != n will only be true if n = nan // n - n != n - n will only be true if n = +-inf
+        || (!n && (str[0] != '0' || (str[1] && str[1] != '0'))))
+    {
+        special(n);
+        return ;
+    }
+    if (n < 0 || n > 127)
+        std::cout << "char: impossible" << std::endl;
+    else if (n < 32 || n > 126)
+        std::cout << "char: non displayable" << std::endl;
+    else
+        std::cout << "char: '" << static_cast<char>(n) << "'" << std::endl;
+    printNumber(n);
 }

@@ -2,8 +2,8 @@
 # define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <cstdlib>
-#include <cctype>
+#include <cfloat>
+#include <climits>
 
 class   ScalarConverter
 {
@@ -14,8 +14,10 @@ class   ScalarConverter
         ~ScalarConverter();
         ScalarConverter(const ScalarConverter &s);
         ScalarConverter &operator=(const ScalarConverter &s);
-        static std::string putChar(const std::string &str);
-        static int whichNumericType(const std::string &str);
+        static void     printChar(const std::string &str);
+        static void     printNumber(double n);
+        static void     special(double n);
+        static int      isDigit(const char c);
 };
 
 #endif
