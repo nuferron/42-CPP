@@ -11,7 +11,7 @@ template <typename T> Array<T>::Array(unsigned int n): _total(n)
 template <typename T> Array<T>::Array(const Array &a): _total(a._total)
 {
     this->_array = new T[this->_total];
-    for (int i = 0; i < this->_total; i++)
+    for (unsigned int i = 0; i < this->_total; i++)
         this->_array[i] = a._array[i];
 }
 
