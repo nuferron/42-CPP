@@ -5,13 +5,14 @@
 
 template <typename T> bool  easyfind(T &var, int num)
 {
-    typename T::const_iterator ptr = var.begin();
+    typename T::const_iterator it = var.begin();
+    typename T::const_iterator ite = var.end();
 
-    while (ptr != var.end())
+    while (it != ite)
     {
-        if (*ptr == num)
+        if (*it == num)
             return (1);
-        ptr++;
+        it++;
     }
     return (0);
 }
