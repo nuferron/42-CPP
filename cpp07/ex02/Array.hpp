@@ -16,12 +16,12 @@ class Array
         T   &operator[](unsigned int id) const;
         unsigned int    size(void) const;
         class   OutOfBounds: public std::exception {
-            const char *what(void) {
+            const char *what(void) const throw () {
                 return ("Array index out of bounds");
             }
         };
         class   NullArray: public std::exception {
-            const char *what(void) {
+            const char *what(void) const throw () {
                 return ("Array is not initialized");
             }
         };
