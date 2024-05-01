@@ -15,6 +15,16 @@ class Array
         Array   &operator=(const Array &a);
         T   &operator[](unsigned int id) const;
         unsigned int    size(void) const;
+        class   OutOfBounds: public std::exception {
+            const char *what(void) {
+                return ("Array index out of bounds");
+            }
+        };
+        class   NullArray: public std::exception {
+            const char *what(void) {
+                return ("Array is not initialized");
+            }
+        };
     private:
         unsigned int    _total;
         T               *_array;
