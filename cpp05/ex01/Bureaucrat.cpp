@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 14:53:07 by nuferron          #+#    #+#             */
-/*   Updated: 2024/04/16 19:22:51 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/05/24 20:34:29 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,14 @@ std::ostream	&operator<<(std::ostream &out, const Bureaucrat &b)
 {
 	out << b.getName() << ", bureaucrat grade " << b.getGrade();
 	return (out);
+}
+
+const char	*Bureaucrat::GradeTooHighException::what(void) const throw ()
+{
+	return ("Grade Too High");
+}
+
+const char	*Bureaucrat::GradeTooLowException::what(void) const throw ()
+{
+	return ("Grade Too Low");
 }
