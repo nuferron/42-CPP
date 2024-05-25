@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:42:16 by nuferron          #+#    #+#             */
-/*   Updated: 2024/04/16 21:37:19 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/05/25 13:20:41 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,13 @@ class	AForm
 		void		beSigned(const Bureaucrat &b);
 		virtual	void		execute(const Bureaucrat &executor) const = 0;
 		virtual std::string	getTarget(void) const = 0;
-		class	GradeTooHighException: public std::exception
-		{
-			public:
-				const char	*what(void) const throw () {
-					return ("Grade Too High");}
-		};
-		class	GradeTooLowException: public std::exception
-		{
-			public:
-				const char	*what(void) const throw () {
-					return ("Grade Too Low");}
-		};
-		class	NotSignedException: public std::exception
-		{
-			public:
-				const char	*what(void) const throw () {
-					return ("Form not signed");}
-		};
-	private:
+
+		class	GradeTooHighException;
+		class	GradeTooLowException;
+		class	AlreadySignedException;
+		class	NotSignedException;
+
+		private:
 		const std::string	_name;
 		bool				_signed;
 		const int			_reqsign;
@@ -64,5 +52,29 @@ class	AForm
 };
 
 std::ostream &operator<<(std::ostream &out, const AForm &b);
+
+class	AForm::GradeTooHighException: public std::exception
+{
+	public:
+		const char	*what(void) const throw ();
+};
+
+class	AForm::GradeTooLowException: public std::exception
+{
+	public:
+		const char	*what(void) const throw ();
+};
+
+class	AForm::AlreadySignedException: public std::exception
+{
+	public:
+		const char *what(void) const throw ();
+};
+
+class	AForm::NotSignedException: public std::exception
+{
+	public:
+		const char	*what(void) const throw ();
+};
 
 #endif
