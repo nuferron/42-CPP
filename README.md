@@ -10,7 +10,7 @@ The aim of this project is to learn C++ and object-oriented programming through 
 	</tr>
 	<tr>
 		<td><a href="">CPP 05</a></td>
-		<td><a href="https://github.com/nuferron/42-CPP/wiki/CPP00">CPP 06</a></td>
+		<td><a href="https://github.com/nuferron/42-CPP/wiki/CPP06">CPP 06</a></td>
 		<td><a href="">CPP 07</td>
 		<td><a href="">CPP 08</td>
 		<td><a href="">CPP 09</a></td>
