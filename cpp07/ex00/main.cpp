@@ -3,12 +3,14 @@
 void    itest(int a, int b)
 {
     std::cout << "PRE a: " << a << " b: " << b << std::endl;
-    swap<int>(a, b);
+    ::swap<int>(a, b);
     std::cout << "POST a: " << a << " b: " << b << std::endl;
-    std::cout << "MIN " << min<int>(a, b) << std::endl;
-    std::cout << "MAX " << max<int>(a, b) << std::endl;
+    std::cout << "MIN " << ::min<int>(a, b) << std::endl;
+    std::cout << "MAX " << ::max<int>(a, b) << std::endl;
 }
 
+/*In this case, :: are not necessary because there are no name conflicts with 
+other functions (p.e. std::swap())*/
 void    ftest(float a, float b)
 {
     std::cout << "PRE a: " << a << " b: " << b << std::endl;
@@ -18,13 +20,14 @@ void    ftest(float a, float b)
     std::cout << "MAX " << max<float>(a, b) << std::endl;
 }
 
+/*If there can be an ambiguity with the type, you should specify the T type*/
 void    ctest(char a, char b)
 {
     std::cout << "PRE a: " << a << " b: " << b << std::endl;
-    swap<char>(a, b);
+    swap(a, b);
     std::cout << "POST a: " << a << " b: " << b << std::endl;
-    std::cout << "MIN " << min<char>(a, b) << std::endl;
-    std::cout << "MAX " << max<char>(a, b) << std::endl;
+    std::cout << "MIN " << min<char>(65, 97) << std::endl;
+    std::cout << "MAX " << max<char>(65, 97) << std::endl;
 }
 
 int main()
@@ -35,10 +38,11 @@ int main()
     std::cout << std::endl;
     ctest('a', 'A');
 }
-
-/*int main( void ) {
+/*
+int main( void ) {
     int a = 2;
     int b = 3;
+
     ::swap( a, b );
     std::cout << "a = " << a << ", b = " << b << std::endl;
     std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
