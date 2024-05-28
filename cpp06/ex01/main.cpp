@@ -11,6 +11,7 @@ int main()
     std::cout << "INITIAL DATA: num = " << data.num
                 << " c = " << data.c << std::endl;
     uptr = Serializer::serialize(&data);
+	std::cout << "uptr: " << uptr << std::endl;
     ptr = Serializer::deserialize(uptr);
     std::cout << "FINAL DATA: num = " << ptr->num
                 << " c = " << ptr->c << std::endl;
