@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:56:02 by nuferron          #+#    #+#             */
-/*   Updated: 2024/04/22 11:50:00 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/05/25 13:35:08 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int	AForm::getReqExe(void) const
 
 void	AForm::beSigned(const Bureaucrat &b)
 {
+	if (this->_signed)
+		throw AForm::AlreadySignedException();
 	if (b.getGrade() > this->_reqsign)
 		throw AForm::GradeTooLowException();
 	this->_signed = true;
@@ -80,4 +82,24 @@ std::ostream	&operator<<(std::ostream &out, const AForm &f)
 	out << "Required grade to sign: " << f.getReqSign() << std::endl;
 	out << "Required grade to execute: " << f.getReqExe();
 	return (out);
+}
+
+const char	*AForm::GradeTooHighException::what(void) const throw ()
+{
+	return ("Grade Too High");
+}
+
+const char	*AForm::GradeTooLowException::what(void) const throw ()
+{
+	return ("Grade Too Low");
+}
+
+const char	*AForm::AlreadySignedException::what(void) const throw ()
+{
+	return ("Form Already Signed");
+}
+
+const char	*AForm::NotSignedException::what(void) const throw ()
+{
+	return ("Form Not Signed");
 }

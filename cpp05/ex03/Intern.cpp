@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 22:59:47 by nuferron          #+#    #+#             */
-/*   Updated: 2024/04/22 11:12:30 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/05/25 14:17:05 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ Intern	&Intern::operator=(const Intern &i)
 
 AForm	*Intern::makeForm(const std::string &name, const std::string &target)
 {
-	if (name == SHRUB)
+	int	i = 0;
+	const char *forms[TOTAL_FORMS] = FORM_NAME;
+
+	while (i < 3 && name != forms[i])
+		i++;
+	switch (i)
 	{
-		std::cout << "Intern creates " + name << std::endl;
-		return (new ShrubberyCreationForm(target));
+		case 0:
+			return (new ShrubberyCreationForm(target));
+		case 1:
+			return (new RobotomyRequestForm(target));
+		case 2:
+			return (new PresidentialPardonForm(target));
+		default:
+			std::cerr << "Error: Invalid form name" << std::endl;
 	}
-	if (name == ROBOT)
-	{
-		std::cout << "Intern creates " + name << std::endl;
-		return (new RobotomyRequestForm(target));
-	}
-	if (name == PARDON)
-	{
-		std::cout << "Intern creates " + name << std::endl;
-		return (new PresidentialPardonForm(target));
-	}
-	std::cerr << "Error: Invalid form name" << std::endl;
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 14:12:37 by nuferron          #+#    #+#             */
-/*   Updated: 2024/04/16 21:28:59 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/05/25 13:36:15 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,27 @@ class	Bureaucrat
 		void		decrement(int n);
 		void		signForm(AForm &f);
 		void		executeForm(const AForm &f) const;
-		class	GradeTooHighException: public std::exception
-		{
-			public:
-				const char	*what(void) const throw () {
-					return ("Grade Too High");}
-		};
-		class	GradeTooLowException: public std::exception
-		{
-			public:
-				const char	*what(void) const throw () {
-					return ("Grade Too Low");}
-		};
+
+		class GradeTooHighException;
+		class GradeTooLowException;
+
 	private:
 		const std::string	_name;
 		int					_grade;
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);
+
+class	Bureaucrat::GradeTooHighException: public std::exception
+{
+	public:
+		const char *what(void) const throw ();
+};
+
+class	Bureaucrat::GradeTooLowException: public std::exception
+{
+	public:
+		const char *what(void) const throw ();
+};
 
 #endif

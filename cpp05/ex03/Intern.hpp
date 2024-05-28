@@ -6,7 +6,7 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 22:55:20 by nuferron          #+#    #+#             */
-/*   Updated: 2024/04/16 23:44:02 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/05/25 14:14:05 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 #define SHRUB	"shrubbery creation"
 #define ROBOT	"robotomy request"
 #define PARDON	"presidential pardon"
+
+#define TOTAL_FORMS	3
+#define	FORM_NAME {"shrubbery creation", "robotomy request", "presidential pardon"}
 
 class AForm;
 
