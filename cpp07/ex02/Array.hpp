@@ -4,7 +4,6 @@
 #include <iostream>
 
 template <typename T>
-
 class Array
 {
     public:
@@ -15,19 +14,27 @@ class Array
         Array   &operator=(const Array &a);
         T   &operator[](unsigned int id) const;
         unsigned int    size(void) const;
-        class   OutOfBounds: public std::exception {
-            const char *what(void) const throw () {
-                return ("Array index out of bounds");
-            }
-        };
-        class   NullArray: public std::exception {
-            const char *what(void) const throw () {
-                return ("Array is not initialized");
-            }
-        };
+
+        class   OutOfBoundsException;
+        class   NullArrayException;
+
     private:
         unsigned int    _total;
         T               *_array;
+};
+
+template <typename T>
+class   Array<T>::OutOfBoundsException: public std::exception
+{
+	public:
+    	const char *what(void) const throw ();
+};
+
+template <typename T>
+class   Array<T>::NullArrayException: public std::exception
+{
+	public:
+    	const char *what(void) const throw ();
 };
 
 #include "Array.tpp"

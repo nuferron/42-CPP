@@ -45,14 +45,14 @@ void    ctest(void)
     Array <char>arr;
     Array <char>arr2(5);
 
-    std::cout << "Printing NULL arr " << arr[0] << std::endl;
+    std::cout << "Printing NULL arr: " << arr[0] << std::endl;
     for (unsigned int i = 0; i < arr2.size(); i++)
-        arr2[i] = (char)i + 65;
+        arr2[i] = (char)(i + 65);
     arr = arr2;
     print("ARR: ", arr);
     print("ARR2: ", arr2);
     for (unsigned int i = 0; i < arr2.size(); i++)
-        arr2[i] = (char)i + 97;
+        arr2[i] = (char)(i + 97);
     print("ARR: ", arr);
     print("ARR2: ", arr2);
 }
