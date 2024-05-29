@@ -5,25 +5,42 @@
 #include <list>
 #include <forward_list>
 
-template <typename T> void    test(T &var, int num)
+template <typename T, typename C>
+void    test(T &var, C find)
 {
-    if (easyfind(var, num))
-        std::cout << "An occurrence of " << num << " has been found" << std::endl;
+    if (easyfind(var, find))
+        std::cout << "An occurrence of " << find << " has been found" << std::endl;
     else
-        std::cout << num << " not found" << std::endl;
+        std::cout << find << " not found" << std::endl;
 }
+
+template <typename T, typename C>
+void	init_type(T &var, C *val, int size, C find)
+{
+	var.assign(val, val + size);
+	test(var, find);
+}
+
+/*int main()
+{
+	int val[] = {1, 2, 3, 5, 7, 11};
+	std::vector<int> vec(val, val + sizeof(val) / sizeof(int));
+	std::deque<int> deq(val, val + sizeof(val) / sizeof(int));
+	std::list<int> lst(val, val + sizeof(val) / sizeof(int));
+	
+	test(vec, 5);
+	test(deq, -1);
+	test(lst, 0);
+}*/
 
 int main()
 {
-    std::array<int, 6> arr{1, 2, 3, 4, 5, 6};
-    std::vector<int> vec({1, 2, 3, 5, 7, 11});
-    std::deque<int> deq({0, 2, 4, 6, 8, 10});
-    std::list<int>  lst({-1, -2, -3, -4, -5});
-    std::forward_list<int>  fwlst({-1, -2, -3, -5, -7, -11});
-    
-    test(arr, 4);
-    test(vec, 9);
-    test(deq, -1);
-    test(lst, -1);
-    test(fwlst, 13);
+	int val[] = {1, 2, 3, 5, 7, 11};
+	std::vector<int> vec;
+	std::deque<int> deq;
+	std::list<int> lst;
+
+	init_type(vec, val, sizeof(val) / sizeof(int), 15);
+	init_type(deq, val, sizeof(val) / sizeof(int), 7);
+	init_type(lst, val, sizeof(val) / sizeof(int), 3);
 }
