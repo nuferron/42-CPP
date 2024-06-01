@@ -1,51 +1,101 @@
 #include "Span.hpp"
 
-Span::Span(): _total(0), _max(0)
-{
-    this->_span = NULL;
-}
+Span::Span(): _size(0), _max_size(5) {}
 
-Span::Span(unsigned int n): _total(0), _max(n)
-{
-    try {
-        this->_span = new int[n];
-    }
-    catch (std::exception &ex) {
-        std::cerr << ex.what() << std::endl;
-    }
-}
+Span::Span(unsigned int n): _size(0), _max_size(n) {}
 
-Span::~Span()
-{
-    delete [] this->_span;
-}
+Span::~Span() {}
 
 Span    &Span::operator=(const Span &s)
 {
-    if (this->_span)
-        delete [] this->_span;
-    this->_max = s._max;
-    this->_total = s._total;
-    for (unsigned int i = 0; i < s._total; i++)
-        this->_span[i] = s._span[i];
+	this->_size = s._size;
+	this->_max_size = s._max_size;
+	this->_span = s._span;
+	return (*this);
 }
 
 void    Span::addNumber(int num)
 {
-    if (this->_total == this->_max)
-        throw SpanOverflow();
-    this->_span[this->_total] = num;
-    this->_total++;
+	if (this->_size == this->_max_size)
+		throw SpanOverflowException();
+	this->_span.insert(num);
+	this->_size++;
 }
 
-int Span::shortestSpan()
+unsigned int	Span::shortestSpan(void)
 {
-    int min = this->_span[0] - this->_span[1];
+	if (this->_size < 2)
+		throw TooFewDataException();
 
-    if (min < 0)
-        min = -min;
-    for (int i = 0; i < this->_total; i++)
-    {
-        
-    }
+	std::multiset<int>::iterator it = this->_span.begin();
+	std::multiset<int>::iterator end = this->_span.end();
+	std::multiset<int>::iterator next = it;
+	next++;
+	unsigned int span = *next - *it;
+	unsigned int tmp;
+
+	while (++next != end)
+	{
+		it++;
+		tmp = *next - *it;
+		if (tmp < span)
+			span = tmp;
+	}
+	return (span);
+}
+
+unsigned int Span::longestSpan(void)
+{
+	if (this->_size < 2)
+		throw TooFewDataException();
+	return (*(--this->_span.end()) - *(this->_span.begin()));
+}
+
+void	Span::addRange(std::vector<int> vec)
+{
+	if (this->_size + vec.size() > this->_max_size)
+		throw SpanOverflowException();
+
+	std::vector<int>::iterator end = vec.end();
+
+	for (std::vector<int>::iterator it = vec.begin(); it != end; it++)
+	{
+		this->_span.insert(*it);
+		this->_size++;
+	}
+}
+
+void	Span::addRange(std::vector<int>::iterator it, std::vector<int>::iterator end)
+{
+	while (it != end)
+	{
+		if (this->_size == this->_max_size)
+			throw SpanOverflowException();
+		this->_span.insert(*it);
+		this->_size++;
+		it++;
+	}
+}
+
+const char	*Span::SpanOverflowException::what(void) const throw ()
+{
+	return ("Span is full");
+}
+
+const char	*Span::TooFewDataException::what(void) const throw ()
+{
+	return ("Data is not enough to find a span");
+}
+
+void	Span::print(void) const
+{
+	
+	std::multiset<int>::iterator it = this->_span.begin();
+	std::multiset<int>::iterator end = this->_span.end();
+	while (it != end)
+	{
+		std::cout << *it << " ";
+		it++;
+	}
+	std::cout << std::endl;
 }
