@@ -21,15 +21,16 @@ RESET = \033[0m
 
 NAME = btc
 SHARED_FILES = BitcoinExchange
-SRCS = main.cpp
+SRCS = main.cpp $(addsuffix .cpp, $(SHARED_FILES))
 HEADERS = $(addsuffix .hpp,$(SHARED_FILES))
 PROG = CPP09 EX00
+FILE = test
 
 CC = c++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 CPPFLAGS = -std=c++98
-DEBUGFLAGS = -g -fsanitize=address
+DEBUGFLAGS = -g #-fsanitize=address
 DEPSFLAGS = -MMD -MP
 FLAGS = ${CFLAGS} ${DEBUGFLAGS} ${DEPSFLAGS}
 
@@ -46,7 +47,7 @@ ${NAME}: ${OBJS}
 		@${CC} ${CFLAGS} -c $< -o $@
 
 run: ${NAME}
-	./${NAME}
+	./${NAME} ${FILE}
 
 clean:
 	${RM} ${OBJS}
