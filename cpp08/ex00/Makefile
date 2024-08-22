@@ -6,7 +6,7 @@
 #    By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:50:10 by nuferron          #+#    #+#              #
-#    Updated: 2024/04/16 23:50:03 by nuferron         ###   ########.fr        #
+#    Updated: 2024/08/22 16:51:57 by nuferron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,10 @@ SRCS =  main.cpp
 HEADERS = easyfind.hpp
 PROG = CPP08 EX00
 
-################## COMMANDS #################
+################## COMPILATION #################
 CC = c++
 RM = rm -rf
 
-################## FLAGS ###################
 CFLAGS = -Wall -Wextra -Werror
 CPPFLAGS = -std=c++98
 DEBUGFLAGS = -g -fsanitize=address
@@ -54,11 +53,7 @@ ${OBJDIR}%.o: %.cpp Makefile
 		@${CC} ${CFLAGS} ${DEPFLAGS} -c $< -o $@
 
 run: ${NAME}
-	./${NAME} 0
-
-
-leaks: ${NAME}
-	leaks -atExit -- ./${NAME}
+	./${NAME}
 
 clean:
 	${RM} ${OBJDIR}
