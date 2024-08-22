@@ -6,13 +6,14 @@
 /*   By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 20:15:38 by nuferron          #+#    #+#             */
-/*   Updated: 2024/06/01 20:47:20 by nuferron         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:30:48 by nuferron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <list>
 
+//42 MAIN
 /*int main()
 {
 	MutantStack<int> mstack;
@@ -48,7 +49,7 @@ void	test_ms_char()
 	ms.push('c');
 	ms.push('d');
 	std::cout << "Top: " << ms.top() << std::endl;
-	std::cout << "We pop the last element ('d')" << std::endl;
+	std::cout << "We pop the last element (" << ms.top() << ")" << std::endl;
 	ms.pop();
 	std::cout << "Ms's size is " << ms.size() << std::endl;
 	ms.push('e');
@@ -56,10 +57,7 @@ void	test_ms_char()
 	MutantStack<char>::iterator it = ms.begin();
 	MutantStack<char>::iterator end = ms.end();
 	while (it != end)
-	{
-		std::cout << *it << " ";
-		it++;
-	}
+		std::cout << *(it++) << " ";
 	std::cout << std::endl;
 }
 
@@ -72,7 +70,7 @@ void	test_ms()
 	ms.push(3);
 	ms.push(4);
 	std::cout << "Top: " << ms.top() << std::endl;
-	std::cout << "We pop the last element (4)" << std::endl;
+	std::cout << "We pop the last element (" << ms.top() << ")" << std::endl;
 	ms.pop();
 	std::cout << "Ms's size is " << ms.size() << std::endl;
 	ms.push(5);
@@ -80,10 +78,7 @@ void	test_ms()
 	MutantStack<int>::iterator it = ms.begin();
 	MutantStack<int>::iterator end = ms.end();
 	while (it != end)
-	{
-		std::cout << *it << " ";
-		it++;
-	}
+		std::cout << *(it++) << " ";
 	std::cout << std::endl;
 }
 
@@ -96,7 +91,7 @@ void	test_list()
 	ms.push_back(3);
 	ms.push_back(4);
 	std::cout << "Top: " << ms.back() << std::endl;
-	std::cout << "We pop_back the last element (4)" << std::endl;
+	std::cout << "We pop the last element (" << ms.back() << ")" << std::endl;
 	ms.pop_back();
 	std::cout << "Ms's size is " << ms.size() << std::endl;
 	ms.push_back(5);
@@ -104,10 +99,7 @@ void	test_list()
 	std::list<int>::iterator it = ms.begin();
 	std::list<int>::iterator end = ms.end();
 	while (it != end)
-	{
-		std::cout << *it << " ";
-		it++;
-	}
+		std::cout << *(it++) << " ";
 	std::cout << std::endl;
 }
 
@@ -115,7 +107,7 @@ int main()
 {
 	std::cout << "TESTING MUTANT STACK CHAR" << std::endl;
 	test_ms_char();
-	std::cout << "TESTING MUTANT STACK" << std::endl;
+	std::cout << "TESTING MUTANT STACK INT" << std::endl;
 	test_ms();
 	std::cout << "TESTING LIST" << std::endl;
 	test_list();
