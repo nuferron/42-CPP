@@ -1,10 +1,10 @@
 #include "Span.hpp"
-
+#include <climits>
 
 void	test_range2(void)
 {
 	Span	span(20);
-	std::vector<int>	vec;
+	std::vector<int> vec;
 	std::vector<int>::iterator it;
 
 	vec.push_back(-3);
@@ -30,7 +30,7 @@ void	test_range2(void)
 void	test_range(void)
 {
 	Span	span(5);
-	std::vector<int>	vec;
+	std::vector<int> vec;
 
 	vec.push_back(-3);
 	vec.push_back(-20);
@@ -76,13 +76,23 @@ void	test_add(void)
 	std::cout << "short " << span.shortestSpan() << std::endl;
 }
 
+void	test_short(void)
+{
+	Span	span(5);
+
+	span.addNumber(42);
+	span.print();
+	std::cout << "long " << span.longestSpan() << std::endl;
+	std::cout << "short " << span.shortestSpan() << std::endl;
+}
+
 int main()
 {
 	try
 	{
-		std::cout << " --------------" << std::endl;
-		std::cout << "|   TEST ADD   |" << std::endl;
-		std::cout << " --------------" << std::endl;
+		std::cout << " --------------" << std::endl
+				<< "|   TEST ADD   |" << std::endl
+				<< " --------------" << std::endl;
 		test_add();
 	}
 	catch (std::exception &ex)
@@ -91,9 +101,9 @@ int main()
 	}
 	try
 	{
-		std::cout << " ------------- " << std::endl;
-		std::cout << "|  TEST ADD2  |" << std::endl;
-		std::cout << " ------------- " << std::endl;
+		std::cout << " ------------- " << std::endl
+				<< "|  TEST ADD2  |" << std::endl
+				<< " ------------- " << std::endl;
 		test_add2();
 	}
 	catch (std::exception &ex)
@@ -102,9 +112,9 @@ int main()
 	}
 	try
 	{
-		std::cout << " ------------- " << std::endl;
-		std::cout << "| TEST RANGE  |" << std::endl;
-		std::cout << " ------------- " << std::endl;
+		std::cout << " ------------- " << std::endl
+				 << "| TEST RANGE  |" << std::endl
+				 << " ------------- " << std::endl;
 		test_range();
 	}
 	catch (std::exception &ex)
@@ -113,10 +123,21 @@ int main()
 	}
 	try
 	{
-		std::cout << " ------------- " << std::endl;
-		std::cout << "| TEST RANGE2 |" << std::endl;
-		std::cout << " ------------- " << std::endl;
+		std::cout << " ------------- " << std::endl
+				<< "| TEST RANGE2 |" << std::endl
+				<< " ------------- " << std::endl;
 		test_range2();
+	}
+	catch (std::exception &ex)
+	{
+		std::cerr << ex.what() << std::endl;
+	}
+	try
+	{
+		std::cout << " ------------- " << std::endl
+				<< "| TEST SHORT |" << std::endl
+				<< " ------------- " << std::endl;
+		test_short();
 	}
 	catch (std::exception &ex)
 	{
