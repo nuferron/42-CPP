@@ -25,7 +25,7 @@ class   BitcoinExchange
         bool    _parseInput(std::ifstream &input);
         void    _parseLine(std::string date, std::string value) const;
         bool    _isValidDate(const std::string &date) const;
-        bool    _findClosestDate(const std::string &inputDate) const;
+        bool    _findClosestDate(const std::string &inputDate, int val) const;
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &bt);
 };
