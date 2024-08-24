@@ -6,7 +6,7 @@
 #    By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:50:10 by nuferron          #+#    #+#              #
-#    Updated: 2024/06/01 20:30:29 by nuferron         ###   ########.fr        #
+#    Updated: 2024/08/24 19:15:39 by nuferron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ CC = c++
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 CPPFLAGS = -std=c++98
-DEBUGFLAGS = -g #-fsanitize=address
+DEBUGFLAGS = -g -fsanitize=address
 DEPSFLAGS = -MMD -MP
 FLAGS = ${CFLAGS} ${DEBUGFLAGS} ${DEPSFLAGS}
 
