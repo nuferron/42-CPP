@@ -9,25 +9,34 @@
 #include <sstream>
 #include <ctime>
 
-# define ARGS "\033[1;31mError: Wrong number of arguments\033[0m"
-# define OPEN "\033[1;31mError: Couldn't open file\033[0m"
-# define FORMAT "\033[1;31mError: Wrong format found\033[0m"
-# define EMPTY "\033[1;31mError: Empty file\033[0m"
+# define ARGS	"Error: Wrong number of arguments"
+# define OPEN	"Error: Couldn't open file: "
+# define FORMAT	"Error: Wrong format found => "
+# define EMPTY	"Error: Empty file: "
+# define DATE	"Error: Bad date => "
+# define NAN	"Error: Not a number => "
+# define NPN	"Error: Not a positive number => "
+# define LARGE	"Error: Number too large => "
+# define NODATE	"Error: No date found before ot equal to => "
+# define CSV_H	"date,exchange_rate"
 
 class   BitcoinExchange
 {
     public:
-        BitcoinExchange(const char* file);
+        BitcoinExchange(const std::string file);
         ~BitcoinExchange();
         BitcoinExchange &operator=(const BitcoinExchange &bt);
     private:
-        std::multimap<std::string, int>  _values;
-        bool    _parseInput(std::ifstream &input);
-        void    _parseLine(std::string date, std::string value) const;
-        bool    _isValidDate(const std::string &date) const;
-        bool    _findClosestDate(const std::string &inputDate, int val) const;
+        std::map<time_t, double>  _data;
+
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &bt);
+		void	_initData(void);
+		time_t	_dateConverter(const std::string &date) const;
+        bool    _parseInput(std::ifstream &input);
+        void    _parseLine(std::string date, std::string value);
+        bool    _isValidDate(const std::string &date) const;
+        void    _findDate(const std::string &date, double value);
 };
 
 #endif
