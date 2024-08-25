@@ -6,7 +6,7 @@
 #    By: nuferron <nuferron@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:50:10 by nuferron          #+#    #+#              #
-#    Updated: 2024/08/24 22:30:09 by nuferron         ###   ########.fr        #
+#    Updated: 2024/08/25 11:47:14 by nuferron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,9 @@ CPPFLAGS = -std=c++98
 DEBUGFLAGS = -g -fsanitize=address
 DEPSFLAGS = -MMD -MP
 FLAGS = ${CFLAGS} ${DEBUGFLAGS} ${DEPSFLAGS}
-ARG = 1 5 4 3 2 6 10
+MAX = 10000
+TOTAL = 3000
+NUMS := `shuf -i 1-${MAX} -n ${TOTAL} | tr "\n" " "`
 
 OBJS = ${SRCS:.cpp=.o}
 DEP = $(OBJ:.o=.d)
@@ -47,7 +49,7 @@ ${NAME}: ${OBJS}
 		@${CC} ${CFLAGS} -c $< -o $@
 
 run: ${NAME}
-	./${NAME} ${ARG}
+	./${NAME} ${NUMS}
 
 clean:
 	${RM} ${OBJS}
