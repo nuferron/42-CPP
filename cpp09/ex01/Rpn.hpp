@@ -17,7 +17,8 @@ class	Rpn
 
 		Rpn(const Rpn &r);
 		Rpn	&operator=(const Rpn &r);
-		bool	_isOperator(const char op);
+		bool	_isOperator(const std::string &op) const;
+		bool	_isNumber(const std::string &num) const;
 		double	_doMath(double f, double s, const char op);
 };
 
