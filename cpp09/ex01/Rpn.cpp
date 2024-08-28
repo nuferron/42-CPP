@@ -53,9 +53,9 @@ double	Rpn::calculator(const std::string exp)
 	return (this->_stack.top());
 }
 
-bool	Rpn::_isOperator(const char op)
+bool	Rpn::_isOperator(const std::string &op) const
 {
-	if (op == '+' || op == '-' || op == '*' || op == '/')
+	if (op == "+" || op == "-" || op == "*" || op == "/")
 		return (true);
 	return (false);
 }
@@ -68,7 +68,7 @@ bool	Rpn::_isNumber(const std::string &num) const
 		return (false);
 	if (num[i] == '-' || num[i] == '+')
 		i++;
-	if (std::atoi(&num.c_str()[i]) == 0 && num[i] != 0)
+	if (num.find_first_not_of("0123456789") != std::string::npos)
 		return (false);
 	return (true);
 }
